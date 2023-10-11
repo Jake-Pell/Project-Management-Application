@@ -1,0 +1,44 @@
+
+[
+    {
+        "id":"a01486ea-663d-11ee-8c99-0242ac120002"
+
+        ,
+        "firstName":"Robbie",
+        "lastName":"White",
+        "address": "123 Park Avenue",
+        "username":"rwhite@gmail.com",
+        "password":"803-565-4433",
+        "tasks": 0
+    },{
+        "id":"a01486ea-663d-11ee-8c99-0242ac120002",
+        "firstName":"Amy",
+        "lastName":"Smith",
+        "username":"asmith@gmail.com",
+        "password":"803-242-4427",
+        "tasks": 3
+    },{
+        "id":"ebdc7f56-663d-11ee-8c99-0242ac120002",
+        "firstName":"Jim",
+        "lastName":"Hudson",
+        "username":"jhudson@yahoo.com",
+        "password":"803-555-4545",
+        "tasks":7
+    },{
+        "id":4,
+        "firstName":"Bryan",
+        "lastName":"Wilson",
+        "username":"bwilson@gmail.com",
+        "password":"803-232-7788",
+        "tasks":0
+    },{
+        "id":"e1c3919e-663d-11ee-8c99-0242ac120002",
+        "firstName":"Jed",
+        "lastName":"Wilson",
+        "username":"jwilson@gmail.com",
+        "password":"803-945-3388",
+        "tasks":0
+    }
+    
+    ]
+    
