@@ -24,5 +24,62 @@ public class User {
 		return projects;
 	}
 
-	public addProject()
+	public boolean addProject(String projectName) {
+		return true;
+	}
+
+	public boolean editProjectName(String newName) {
+		return true;
+	}
+
+	public boolean addColumn(String columnName) {
+		return true;
+	}
+
+	public boolean editColumnName(Column column, String columnName) {
+		return true;
+	}
+
+	public boolean moveColumn(Column column, Direction direction) {
+		return true;
+	}
+
+	public boolean createTask(Column column, String taskName, String description,
+								int priority) {
+		return true;
+	}
+
+	public boolean editTaskDescription(Task task, String description) {
+		return true;
+	}
+
+	public boolean editTaskPriority(Task task, int priority) {
+		return true;
+	}
+
+	public boolean editTaskName(Task task, String name) {
+		return true;
+	}
+
+	public boolean addComment(Project project, String description) {
+		return true;
+	}
+
+	public boolean addComment(Task task, String description) {
+		return true;
+	}
+
+	public boolean setCurrentProject(Project project) {
+		return true;
+	}
+
+	public Project getCurrentProject() {
+		return currentProject;
+	}
+
+
+
+
+
+
 }
