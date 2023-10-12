@@ -1,20 +1,17 @@
-    {
+[
+  {
     "project_id": "2dff2370-663e-11ee-8c99-0242ac120002",
     "project_name": "Sample Project",
     "description": "This is a sample project description.",
-    "start_date": "2023-10-01",
-    "end_date": "2023-11-30",
     "status": "in_progress",
     "team_members": [
         {
         "user_id": "3eef1672-663e-11ee-8c99-0242ac120002",
-        "username": "alice_smith",
-       
+        "username": "alice_smith"
         },
         {
         "user_id": 789,
-        "username": "bob_jones",
-       
+        "username": "bob_jones" 
         }
     ],
     "tasks": [
@@ -52,7 +49,7 @@
             }
         ]
     }
-
+]
 
 
 
