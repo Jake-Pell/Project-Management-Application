@@ -6,7 +6,7 @@ public class ProjectList {
 	private static ProjectList projectList;
 
 	private ProjectList() {
-		projects = new ArrayList<Project>();
+		projects = DataLoader.getProjects();
 	}
 
 	public ProjectList getInstance() {
