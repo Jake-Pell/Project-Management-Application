@@ -24,7 +24,7 @@ public class ProjectList {
 	}
 
 	public Project getProject(String projectName) {
-		for (Project p : projectList) {
+		for (Project p : projects) {
 			if (p.getName().equals(projectName))
 				return p;
 		}
