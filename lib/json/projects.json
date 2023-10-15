@@ -3,6 +3,6 @@
     "project_id": "2dff2370-663e-11ee-8c99-0242ac120002",
     "project_name": "Sample Project",
     "users": ["user1ID","user2ID"],
-    "columns":[["taskID1","taskID2"], ["taskID3", "taskID4"]]
+    "columns": ["columnID1","columnID2"]
     }
 ]
