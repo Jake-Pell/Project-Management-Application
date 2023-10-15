@@ -2,55 +2,7 @@
   {
     "project_id": "2dff2370-663e-11ee-8c99-0242ac120002",
     "project_name": "Sample Project",
-    "description": "This is a sample project description.",
-    "status": "in_progress",
-    "team_members": [
-        {
-        "user_id": "3eef1672-663e-11ee-8c99-0242ac120002",
-        "username": "alice_smith"
-        },
-        {
-        "user_id": 789,
-        "username": "bob_jones" 
-        }
-    ],
-    "tasks": [
-        {
-        "task_id": "7908cb14-663e-11ee-8c99-0242ac120002",
-        "task_name": "Task 1",
-        "description": "Complete task 1",
-        "due_date": "2023-10-15",
-        "assigned_to": 456,
-        "status": "in_progress"
-        },
-        {
-        "task_id": "5cef61e0-663e-11ee-8c99-0242ac120002",
-        "task_name": "Task 2",
-        "description": "Complete task 2",
-        "due_date": "2023-11-10",
-        "assigned_to": 789,
-        "status": "not_started"
-        }
-    ],
-        "comments": [
-            {
-            "comment_id": "4e63003c-663e-11ee-8c99-0242ac120002",
-            "user_id": 456,
-            "username": "alice_smith",
-            "comment_text": "Great progress on Task 1!",
-            "timestamp": "2023-10-05T14:45:00Z"
-            },
-            {
-            "comment_id": "5cef61e0-663e-11ee-8c99-0242ac120002",
-            "user_id": 789,
-            "username": "bob_jones",
-            "comment_text": "Let's discuss Task 2 in our next meeting.",
-            "timestamp": "2023-10-10T09:30:00Z"
-            }
-        ]
+    "users": ["user1ID","user2ID"],
+    "columns":[["taskID1","taskID2"], ["taskID3", "taskID4"]]
     }
 ]
-
-
-
-
