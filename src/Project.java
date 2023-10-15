@@ -30,6 +30,10 @@ public class Project {
   public boolean addComment(User author, String description){
     return true;
   }
+
+  public String getName() {
+    return name;
+  }
 }
 
 
