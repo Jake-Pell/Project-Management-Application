@@ -77,6 +77,9 @@ public class User {
 		return currentProject;
 	}
 
+	public UUID getID() {
+		return id;
+	}
 
 
 
