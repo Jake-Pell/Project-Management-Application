@@ -3,21 +3,31 @@ import java.util.ArrayList;
 public class ProjectList {
 
 	private ArrayList<Project> projects;
-	private ProjectList projectList;
+	private static ProjectList projectList;
 
 	private ProjectList() {
-
+		projects = new ArrayList<Project>();
 	}
 
 	public ProjectList getInstance() {
-		return null;
+		if (projectList == null) {
+			projectList = new ProjectList();
+		}
+		return projectList;
+
 	}
 
 	public boolean addProject(Project newProject) {
-		return true;
+		if (projectList == null)
+			return false;
+		return projects.add(newProject);
 	}
 
 	public Project getProject(String projectName) {
+		for (Project p : projectList) {
+			if (p.getName().equals(projectName))
+				return p;
+		}
 		return null;
 	}
 }
