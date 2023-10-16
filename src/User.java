@@ -98,6 +98,14 @@ public class User {
 		return projects;
 	}
 
+	public ArrayList<UUID> getProjectIDs() {
+		ArrayList<UUID> projectIDs = new ArrayList<UUID>();
+		for (Project p : projects) {
+			projectIDs.add(p.getID());
+		}
+		return projectIDs;
+	}
+
 
 
 
