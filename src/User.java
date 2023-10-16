@@ -7,11 +7,11 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String username;
-	private Sting password;
+	private String password;
 	private Project currentProject;
 	private ArrayList<Project> projects;
 
-	public User(String firstName, String lastName, String password) {
+	public User(String firstName, String lastName, String username, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
