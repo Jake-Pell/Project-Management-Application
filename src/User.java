@@ -10,14 +10,11 @@ public class User {
 	private Project currentProject;
 	private ArrayList<Project> projects;
 
-	public User(String firstName, String lastName, String password,
-				 Project currentProject) {
+	public User(String firstName, String lastName, String password,) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
 		this.password = password;
-		// might need to change this
-		this.currentProject = currentProject;
 	}
 
 	public ArrayList<Project> getProjects() {
@@ -79,6 +76,26 @@ public class User {
 
 	public UUID getID() {
 		return id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public ArrayList<Project> getProjects() {
+		return projects;
 	}
 
 
