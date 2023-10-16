@@ -38,6 +38,18 @@ public class Project {
   public UUID getID() {
     return id;
   }
+
+  public ArrayList<User> getUsers() {
+    return users;
+  }
+
+  public ArrayList<Column> getColumns() {
+    return columns;
+  }
+
+  public ArrayList<Comment> getComments() {
+    return comments;
+  }
 }
 
 

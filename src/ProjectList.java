@@ -23,7 +23,7 @@ public class ProjectList {
 		return projects.add(newProject);
 	}
 
-	public ArrayList<Project> getProject(String projectName) {
+	public ArrayList<Project> getProjects() {
 		return projects;
 	}
 }
