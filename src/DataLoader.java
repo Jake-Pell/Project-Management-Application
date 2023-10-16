@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 public class DataLoader {
 
-	public ArrayList<User> getUsers() {
+	public static ArrayList<User> getUsers() {
 		return null;
 	}
 
-	public ArrayList<Project> getProjects() {
+	public static ArrayList<Project> getProjects() {
 		return null;
 	}
 }
