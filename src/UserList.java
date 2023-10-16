@@ -22,11 +22,7 @@ public class UserList {
 		return users.add(newUser);
 	}
 
-	public User getUser(String userID) {
-		for (User u : users) {
-			if (u.getID().equals(userID))
-				return u;
-		}
-		return null;
+	public ArrayList<User> getUsers() {
+		return users;
 	}
 }
