@@ -23,11 +23,7 @@ public class ProjectList {
 		return projects.add(newProject);
 	}
 
-	public Project getProject(String projectName) {
-		for (Project p : projects) {
-			if (p.getName().equals(projectName))
-				return p;
-		}
-		return null;
+	public ArrayList<Project> getProject(String projectName) {
+		return projects;
 	}
 }
