@@ -35,6 +35,27 @@ public class DataLoader extends DataConstants{
 	}
 
 	public static ArrayList<Project> getProjects() {
-		return null;
+		ArrayList<Project> projects = new ArrayList<Project>();
+
+		try{
+			FileReader reader = new FileReader(PROJECT_FILE_NAME);
+			JSONParser parser = new JSONParser();
+			JSONArray projectsJSON = new (JSONArray) new JSONParser().parse(reader);
+
+			for (int i = 0; i < projects.size(); ++i) {
+				JSONObject projectJSON = (JSONObject)projectsJSON.get(i);
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();	
+		}
+		return projects;
 	}
 }
+
+
+
+
+
+
