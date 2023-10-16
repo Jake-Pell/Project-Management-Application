@@ -9,7 +9,7 @@ public class UserList {
 		users = DataLoader.getUsers();
 	}
 
-	public UserList getInstance() {
+	public static UserList getInstance() {
 		if (userList == null) {
 			userList = new UserList();
 		}

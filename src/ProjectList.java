@@ -9,7 +9,7 @@ public class ProjectList {
 		projects = DataLoader.getProjects();
 	}
 
-	public ProjectList getInstance() {
+	public static ProjectList getInstance() {
 		if (projectList == null) {
 			projectList = new ProjectList();
 		}
