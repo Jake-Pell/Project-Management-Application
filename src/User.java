@@ -7,7 +7,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String username;
-	private Sting password;
+	private String password;
 	private Project currentProject;
 	private ArrayList<Project> projects;
 
