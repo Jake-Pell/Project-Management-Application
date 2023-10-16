@@ -1,4 +1,5 @@
-
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class User {
 
@@ -10,7 +11,7 @@ public class User {
 	private Project currentProject;
 	private ArrayList<Project> projects;
 
-	public User(String firstName, String lastName, String password,) {
+	public User(String firstName, String lastName, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;

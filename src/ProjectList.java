@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class ProjectList {
 
-	private ArrayList<Project> projects;
+	private static ArrayList<Project> projects;
 	private static ProjectList projectList;
 
 	private ProjectList() {
