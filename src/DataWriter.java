@@ -14,7 +14,7 @@ public class DataWriter extends DataConstants {
 	 */
 	public static boolean saveUsers() {
 		UserList userList = UserList.getInstance();
-		ArrayList<User> users = UserList.getUsers();
+		ArrayList<User> users = userList.getUsers();
 		JSONArray jsonUsers = new JSONArray();
 		for (User u : users) {
 			jsonUsers.add(getUserJSON(u));
@@ -40,12 +40,16 @@ public class DataWriter extends DataConstants {
 	 */
 	public static JSONObject getUserJSON(User user) {
 		JSONObject userDetails = new JSONObject();
-		userDetails.put(USER_ID, (String) user.getID());
+		userDetails.put(USER_ID, user.getID().toString());
 		userDetails.put(USER_FIRST_NAME, user.getFirstName());
 		userDetails.put(USER_LAST_NAME, user.getLastName());
 		userDetails.put(USER_UNAME, user.getUsername());
 		userDetails.put(USER_PASSWORD, user.getPassword());
-		JSONArray userProjects = new JSONArray(user.getProjectIDs());
+		JSONArray userProjects = new JSONArray();
+		ArrayList<UUID> projectIDs = user.getProjectIDs();
+		for (UUID id : projectIDs) 
+			userProjects.add(id.toString());
+		
 		userDetails.put(USER_PROJECTS, userProjects.toString());
 
 		return userDetails;
