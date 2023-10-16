@@ -8,7 +8,6 @@ public class User {
 	private String lastName;
 	private String username;
 	private String password;
-	private Project currentProject;
 	private ArrayList<Project> projects;
 
 	public User(String firstName, String lastName, String username, String password) {
@@ -65,14 +64,6 @@ public class User {
 
 	public boolean addComment(Task task, String description) {
 		return true;
-	}
-
-	public boolean setCurrentProject(Project project) {
-		return true;
-	}
-
-	public Project getCurrentProject() {
-		return currentProject;
 	}
 
 	public UUID getID() {
