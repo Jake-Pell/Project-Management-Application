@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 package src;
-=======
 import java.util.ArrayList;
 import java.util.UUID;
->>>>>>> d6f4e18591febb9cc8c3fa14de2fb81dea1a9a26
 
 public class User {
 
