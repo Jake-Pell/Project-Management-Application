@@ -1,9 +1,0 @@
-[
-  {
-    "description":"my comment",
-    "author":"USERID",
-    "replies":["cmtID1","cmtID2"],
-    "date":"dateSTRING"
-  }
-
-]
