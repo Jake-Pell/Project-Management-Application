@@ -14,6 +14,11 @@ public class Comment {
 
         
     }
+    public boolean addReply(Comment comment){
+
+
+        return true;
+    }
 
 
 }

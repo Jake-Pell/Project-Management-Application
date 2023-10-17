@@ -6,7 +6,7 @@ public class ProjectApplication {
 		return null;
 	}
 
-    public projectApplication() {
+    public ProjectApplication() {
 
     }
 
