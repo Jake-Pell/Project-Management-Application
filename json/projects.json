@@ -2,7 +2,31 @@
   {
     "project_id": "2dff2370-663e-11ee-8c99-0242ac120002",
     "project_name": "Sample Project",
-    "users": ["user1ID","user2ID"],
-    "columns": ["columnID1","columnID2"]
+    "users":["userID1", "userID2"],
+    "columns": [
+      {
+        "name":"bug",
+        "tasks":["task1ID","task2ID"]
+      },
+      {
+        "name":"InProgress",
+        "tasks":["taskID3", "taskID4"]
+      }
+    ],
+    "comments":[
+      {
+        "author":"UserID",
+        "description":"easy peasy",
+        "date":"dateFormat",
+        "replies":[
+          {
+            
+          },
+          {
+
+          }
+        ]
+      }
+    ]
     }
 ]
