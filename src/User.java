@@ -35,6 +35,14 @@ public class User {
 		return password;
 	}
 
+	public boolean checkPassword() {
+		return true;
+	}
+
+	
+	
+
+
 	public ArrayList<UUID> getProjectIDs() {
 		ArrayList<UUID> projectIDs = new ArrayList<UUID>();
 		for (Project p : projects) {
