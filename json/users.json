@@ -4,36 +4,31 @@
         "firstName":"Robbie",
         "lastName":"White",
         "username":"rwhite@gmail.com",
-        "password":"803-565-4433",
-        "projects":["id1","id2"]
+        "password":"803-565-4433"
     },{
         "id":"a01486ea-663d-11ee-8c99-0242ac120002",
         "firstName":"Amy",
         "lastName":"Smith",
         "username":"asmith@gmail.com",
-        "password":"803-242-4427",
-        "projects":["id1","id2"]
+        "password":"803-242-4427"
     },{
         "id":"ebdc7f56-663d-11ee-8c99-0242ac120002",
         "firstName":"Jim",
         "lastName":"Hudson",
         "username":"jhudson@yahoo.com",
-        "password":"803-555-4545",
-        "projects":["id1","id2"]
+        "password":"803-555-4545"
     },{
         "id":"UUID",
         "firstName":"Bryan",
         "lastName":"Wilson",
         "username":"bwilson@gmail.com",
-        "password":"803-232-7788",
-        "projects":["id1","id2"]
+        "password":"803-232-7788"
     },{
         "id":"e1c3919e-663d-11ee-8c99-0242ac120002",
         "firstName":"Jed",
         "lastName":"Wilson",
         "username":"jwilson@gmail.com",
-        "password":"803-945-3388",
-        "projects":["id1","id2"] 
+        "password":"803-945-3388"
     }
     
 ]    
