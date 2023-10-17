@@ -19,7 +19,7 @@ public class Project {
     return true;
   }
   
-  public boolean addUser(User user, UserType access){
+  public boolean addUser(User user){
     return true;
   }
 
