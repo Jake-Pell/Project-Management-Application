@@ -12,8 +12,8 @@ public class Comment {
 
     public Comment(User author, String description){
 
-
+        
     }
 
-    
+
 }
