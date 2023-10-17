@@ -1,3 +1,5 @@
+package src;
+
 // Copyright 2023 Cocky 4
 
 public abstract class DataConstants {
