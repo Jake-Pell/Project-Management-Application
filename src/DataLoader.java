@@ -1,4 +1,5 @@
 // Copyright 2023 Cocky 4
+import java.io.FileReader;
 import java.util.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -37,19 +38,19 @@ public class DataLoader extends DataConstants{
 	public static ArrayList<Project> getProjects() {
 		ArrayList<Project> projects = new ArrayList<Project>();
 
-		try{
-			FileReader reader = new FileReader(PROJECT_FILE_NAME);
-			JSONParser parser = new JSONParser();
-			JSONArray projectsJSON = new (JSONArray) new JSONParser().parse(reader);
+		// try{
+		// 	FileReader reader = new FileReader(PROJECT_FILE_NAME);
+		// 	JSONParser parser = new JSONParser();
+		// 	JSONArray projectsJSON = new (JSONArray) new JSONParser().parse(reader);
 
-			for (int i = 0; i < projects.size(); ++i) {
-				JSONObject projectJSON = (JSONObject)projectsJSON.get(i);
+		// 	for (int i = 0; i < projects.size(); ++i) {
+		// 		JSONObject projectJSON = (JSONObject)projectsJSON.get(i);
 				
-			}
+		// 	}
 
-		} catch (Exception e) {
-			e.printStackTrace();	
-		}
+		// } catch (Exception e) {
+		// 	e.printStackTrace();	
+		// }
 		return projects;
 	}
 }

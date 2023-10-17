@@ -11,4 +11,12 @@ public class History {
 
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public String getChange() {
+        return newChange;
+    }
+
 }
