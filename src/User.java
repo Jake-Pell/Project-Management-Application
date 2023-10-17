@@ -10,6 +10,7 @@ public class User {
 	private String password;
 
 	public User(String firstName, String lastName, String username, String password) {
+		id = UUID.randomUUID();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
@@ -43,13 +44,13 @@ public class User {
 	
 
 
-	public ArrayList<UUID> getProjectIDs() {
+	/*public ArrayList<UUID> getProjectIDs() {
 		ArrayList<UUID> projectIDs = new ArrayList<UUID>();
 		for (Project p : projects) {
 			projectIDs.add(p.getID());
 		}
 		return projectIDs;
-	}
+	}*/
 
 
 
