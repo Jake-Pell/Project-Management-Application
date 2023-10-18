@@ -2,6 +2,14 @@ import java.util.*;
 
 public class ProjectApplication {
 
+    // tester main
+    /*
+    public static void main(String[] args) {
+        ProjectApplication test = new ProjectApplication();
+        UserList.getInstance();
+        System.out.println(test.login("rwhite@gmail.com", "803-565-4433"));
+    } */
+
     public ArrayList<Project> getMyProjects() {
 		return null;
 	}
@@ -11,7 +19,7 @@ public class ProjectApplication {
     }
 
     public User login(String userName, String password) {
-        return null;
+        return UserList.getUser(userName, password);
     }
 
     public User signUp(String firstName, String lastName, String userName, String password) {
