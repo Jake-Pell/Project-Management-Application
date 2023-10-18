@@ -31,6 +31,10 @@ public class UserList {
 		return null;
 	}
 
+	public static boolean saveUsers() {
+		return DataWriter.saveUsers();
+	}
+
 	public ArrayList<User> getUsers() {
 		return users;
 	}
