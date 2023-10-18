@@ -8,27 +8,25 @@ public class Task {
   private ArrayList<History> columns;
   private ArrayList<Comment> comments;
 
-}
-
-public Task(String taskname, String description, int priority){
-
+  public Task(String taskname, String description, int priority){
    
-}
-
-public void setDescription(String description){
-
-}
-public void changeName(String name){
-
-}
-public void setPriority(int newPriority){
-
-}
-public ArrayList<User> setAssignedUsers(){
-    return null;
-}
-public void addComment(addComment)
-{
+  }
+  
+  public void setDescription(String description){
+  
+  }
+  public void changeName(String name){
+  
+  }
+  public void setPriority(int newPriority){
+  
+  }
+  public ArrayList<User> setAssignedUsers(){
+      return null;
+  }
+  public void addComment(User author, String description)
+  {
     
+  }
+  
 }
-
