@@ -21,7 +21,7 @@ public class DataWriter extends DataConstants {
 		}
 
 		// write to file
-		try (FileWriter writer = new FileWriter(USER_FILE_NAME)) {
+		try (FileWriter writer = new FileWriter("json/usersTest.json")) { // temp file name for testing
 			writer.write(jsonUsers.toJSONString());
 			writer.flush();
 		} catch (IOException e) {
@@ -45,12 +45,6 @@ public class DataWriter extends DataConstants {
 		userDetails.put(USER_LAST_NAME, user.getLastName());
 		userDetails.put(USER_UNAME, user.getUsername());
 		userDetails.put(USER_PASSWORD, user.getPassword());
-		ArrayList<UUID> projectIDs = user.getProjectIDs();
-		JSONArray userProjects = new JSONArray();
-		for (UUID id : projectIDs) 
-			userProjects.add(id.toString());
-		
-		userDetails.put(USER_PROJECTS, userProjects);
 
 		return userDetails;
 	}
@@ -107,4 +101,11 @@ public class DataWriter extends DataConstants {
 
 
 	}
+
+
+	// tester main
+	/*
+	public static void main(String[] args) {
+		System.out.println(saveUsers());
+	} */
 }
