@@ -2,6 +2,7 @@ import java.util.*;
 
 public class ProjectApplication {
 
+    private User currentUser;
     // tester main
     /*
     public static void main(String[] args) {
