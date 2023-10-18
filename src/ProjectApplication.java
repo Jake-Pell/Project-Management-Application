@@ -19,12 +19,13 @@ public class ProjectApplication {
 
     }
 
-    public User login(String userName, String password) {
-        return UserList.getUser(userName, password);
+    public boolean login(String userName, String password) {
+        currentUser = UserList.getUser(userName, password);
+        return currentUser != null;
     }
 
-    public User signUp(String firstName, String lastName, String userName, String password) {
-        return null;
+    public boolean signUp(String firstName, String lastName, String userName, String password) {
+        return UserList.getInstance().addUser(firstName, lastName, userName, password);
     }
 
     public boolean addProject(String projectName) {
