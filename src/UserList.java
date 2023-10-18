@@ -16,10 +16,11 @@ public class UserList {
 		return userList;
 	}
 
-	public boolean addUser(User newUser) {
+	public static boolean addUser(String firstName, String lastName, 
+								String username, String password) {
 		if (userList == null) 
 			return false;
-		return users.add(newUser);
+		return users.add(new User(firstName, lastName, username, password));
 	}
 
 	public ArrayList<User> getUsers() {
