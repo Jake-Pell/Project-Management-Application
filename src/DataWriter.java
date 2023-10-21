@@ -21,7 +21,7 @@ public class DataWriter extends DataConstants {
 		}
 
 		// write to file
-		try (FileWriter writer = new FileWriter("json/usersTest.json")) { // temp file name for testing
+		try (FileWriter writer = new FileWriter(USER_FILE_NAME)) { 
 			writer.write(jsonUsers.toJSONString());
 			writer.flush();
 		} catch (IOException e) {
@@ -54,7 +54,7 @@ public class DataWriter extends DataConstants {
 	 * Saves them to projects.json
 	 * @return true if the save was successful, false if it fails
 	 */
-	public boolean saveProjects() {
+	public static boolean saveProjects() {
 		ProjectList projectList = ProjectList.getInstance();
 		ArrayList<Project> projects = projectList.getProjects();
 		JSONArray jsonProjects = new JSONArray();
@@ -62,7 +62,7 @@ public class DataWriter extends DataConstants {
 			jsonProjects.add(getProjectJSON(p));
 
 		// write to file
-		try (FileWriter writer = new FileWriter(PROJECT_FILE_NAME)) {
+		try (FileWriter writer = new FileWriter("json/projectTest.json")) { // temp test file name
 			writer.write(jsonProjects.toJSONString());
 			writer.flush();
 		} catch (IOException e) {
@@ -92,20 +92,19 @@ public class DataWriter extends DataConstants {
 		JSONArray projectColumns = new JSONArray();
 		ArrayList<Column> columns = project.getColumns();
 		for (Column c : columns) 
-			projectUsers.add(c.getID().toString());
+			projectColumns.add(getColumnJSON(c));
 
 		projectDetails.put(PROJECT_USERS, projectUsers);
 		projectDetails.put(PROJECT_COLUMNS, projectColumns);
 
 		return projectDetails;
 
-
 	}
 
-
-	// tester main
-	/*
-	public static void main(String[] args) {
-		System.out.println(saveUsers());
-	} */
+	public static JSONObject getColumnJSON(Column column) {
+		JSONObject columnDetails = new JSONObject();
+		columnDetails.put(PROJECT_NAME, column.getName());
+		return columnDetails;
+	}
+	
 }

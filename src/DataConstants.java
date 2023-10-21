@@ -15,4 +15,7 @@ public abstract class DataConstants {
   protected final static String PROJECT_NAME = "name";
   protected final static String PROJECT_USERS = "users";
   protected final static String PROJECT_COLUMNS = "columns";
+
+  // Column
+  protected final static String COLUMN_NAME = "name";
 }

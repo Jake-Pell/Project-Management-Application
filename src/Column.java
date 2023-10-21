@@ -5,20 +5,14 @@ import java.util.ArrayList;
 public class Column {
     
     private String name;
-    private UUID id;
     private ArrayList<Task> tasks;
 
-    public Column(String name, Task taks){
-
-
+    public Column(String name){
+        this.name = name;
     }
 
     public String getName(){
         return name;
-    }
-
-    public UUID getID(){
-        return id;
     }
 
     public ArrayList<Task> getTasks(){

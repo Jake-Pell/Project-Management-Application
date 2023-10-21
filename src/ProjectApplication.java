@@ -3,13 +3,6 @@ import java.util.*;
 public class ProjectApplication {
 
     private User currentUser;
-    // tester main
-    /*
-    public static void main(String[] args) {
-        ProjectApplication test = new ProjectApplication();
-        UserList.getInstance();
-        System.out.println(test.login("rwhite@gmail.com", "803-565-4433"));
-    } */
 
     public ArrayList<Project> getMyProjects() {
 		return null;
@@ -20,7 +13,7 @@ public class ProjectApplication {
     }
 
     public boolean login(String userName, String password) {
-        currentUser = UserList.getUser(userName, password);
+        currentUser = UserList.getInstance().getUser(userName, password);
         return currentUser != null;
     }
 
@@ -33,7 +26,7 @@ public class ProjectApplication {
     }
 
     public boolean addProject(String projectName) {
-        return false;
+        return ProjectList.getInstance().addProject(projectName, currentUser);
     }
 
     public boolean editProjectName(Project project, String title) {
@@ -74,5 +67,9 @@ public class ProjectApplication {
 
     public void addComment(Task task, String description) {
 
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 }

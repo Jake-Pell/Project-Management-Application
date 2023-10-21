@@ -17,10 +17,14 @@ public class ProjectList {
 
 	}
 
-	public boolean addProject(String projectName, User author) {
+	public static boolean addProject(String projectName, User author) {
 		if (projectList == null)
 			return false;
 		return projects.add(new Project(projectName, author));
+	}
+
+	public static boolean saveProjects() {
+		return DataWriter.saveProjects();
 	}
 
 	public ArrayList<Project> getProjects() {

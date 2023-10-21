@@ -7,20 +7,29 @@ public class Project {
 
   private UUID id;
   private String name;
-  private ArrayList<User> users;
-  private ArrayList<Column> columns;
-  private ArrayList<Comment> comments;
+  private ArrayList<User> users = new ArrayList<User>();
+  private ArrayList<Column> columns = new ArrayList<Column>();
+  private ArrayList<Comment> comments = new ArrayList<Comment>();
 
   public Project(String name, User user){
+    id = UUID.randomUUID();
+    this.name = name;
+    addUser(user);
+
+    // default project columns
+    addColumn("Backlog");
+    addColumn("To Do");
+    addColumn("In Progress");
+    addColumn("Completed");
 
   }
   
-  public boolean addColumn(Column column){
-    return true;
+  public boolean addColumn(String columnName){
+    return columns.add(new Column(columnName));
   }
   
   public boolean addUser(User user){
-    return true;
+    return users.add(user);
   }
 
   public boolean moveColumn(Column column, Direction direction){  
