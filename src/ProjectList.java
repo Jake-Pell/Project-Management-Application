@@ -17,10 +17,10 @@ public class ProjectList {
 
 	}
 
-	public boolean addProject(Project newProject) {
+	public boolean addProject(String projectName, User author) {
 		if (projectList == null)
 			return false;
-		return projects.add(newProject);
+		return projects.add(new Project(projectName, author));
 	}
 
 	public ArrayList<Project> getProjects() {
