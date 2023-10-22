@@ -15,8 +15,13 @@ public class Task {
   public void setDescription(String description){
   
   }
-  public void changeName(String name){
-  
+  public boolean changeName(String taskName){
+    if(!taskName.isEmpty()){
+      this.taskName = taskName;
+      return true;
+    }else{
+      return false;
+    }
   }
   public void setPriority(int newPriority){
   

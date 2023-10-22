@@ -23,7 +23,19 @@ public class Project {
     addColumn("Completed");
 
   }
-  
+ 
+  public boolean changeTitle(String newName){
+    if(!newName.isEmpty()){
+      this.name = newName;
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
+
+
   public boolean addColumn(String columnName){
     return columns.add(new Column(columnName));
   }
