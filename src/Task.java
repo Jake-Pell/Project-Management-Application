@@ -5,8 +5,8 @@ public class Task {
     private int priority;
     private String description;
     private ArrayList<User> users;
-  private ArrayList<History> columns;
-  private ArrayList<Comment> comments;
+    private ArrayList<History> columns;
+    private ArrayList<Comment> comments;
 
   public Task(String taskname, String description, int priority){
    
