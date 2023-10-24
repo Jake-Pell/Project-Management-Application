@@ -28,4 +28,14 @@ public class Column {
         return task;
     }
 
+    public boolean setName(String name) {
+        if (!name.isEmpty()){
+            this.name = name;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
 }

@@ -7,6 +7,7 @@ public class ProjectApplication {
     private UserList userList;
     private ProjectList projectList;
     private Task currentTask;
+    private Column currentColumn;
 
     public ArrayList<Project> getMyProjects() {
 		return null;
@@ -57,8 +58,8 @@ public class ProjectApplication {
         return currentProject.addColumn(column);
     }
 
-    public boolean editColumnName(Column column, String columnName) {
-        return false;
+    public boolean editColumnName(String columnName) {
+        return currentColumn.setName(columnName);
     }
 
     public boolean moveColumn(Column column, Direction direction) {
@@ -97,7 +98,11 @@ public class ProjectApplication {
         return currentTask.addComment(comment);
     }
 
-    public boolean moveTask(Direction direction){
+    public boolean moveTask(String direction){ 
         return true;
+    }
+
+    public void setTask(Task task) {
+        currentTask = task;
     }
 }
