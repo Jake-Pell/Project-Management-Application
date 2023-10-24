@@ -48,8 +48,8 @@ public class Project {
     return true;
   }
 
-  public boolean addComment(User author, String description){
-    return true;
+  public boolean addComment(Comment comment){
+    return comments.add(comment);
   }
   
   public boolean addColumn(Column column){
