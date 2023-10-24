@@ -51,15 +51,16 @@ public class ProjectApplication {
     }
 
     public boolean addColumn(String columnName) {
-        return currentProject.addColumn(columnName);
+        Column column = new Column(columnName);
+        return currentProject.addColumn(column);
     }
 
     public boolean editColumnName(Column column, String columnName) {
         return false;
     }
 
-    public void moveColumn(Column column, Direction direction) {
-
+    public boolean moveColumn(Column column, Direction direction) {
+        return true;
     }
 
     public boolean createTask(Column column, String taskname, String descriprion, int priority) {

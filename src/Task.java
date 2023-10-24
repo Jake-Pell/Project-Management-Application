@@ -14,9 +14,7 @@ public class Task {
     id = UUID.randomUUID();
   }
   
-  public void setDescription(String description){
-  
-  }
+
   public boolean changeName(String taskName){
     if(!taskName.isEmpty()){
       this.taskName = taskName;
@@ -25,18 +23,31 @@ public class Task {
       return false;
     }
   }
-  public void setPriority(int newPriority){
-    this.priority = newPriority;
+
+  public UUID getID() {
+    return id;
   }
+ 
   public ArrayList<User> setAssignedUsers(){
       return null;
   }
   public void addComment(User author, String description){
 
   }
-
-  public UUID getID() {
-    return id;
+  
+  // Setters 
+  public void setTaskName(String taskName) {
+    this.taskName = taskName;
   }
+  public void setPriority(int newPriority){
+    this.priority = newPriority;
+  }
+  
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+
   
 }
