@@ -51,6 +51,10 @@ public class Project {
   public boolean addComment(User author, String description){
     return true;
   }
+  
+  public boolean addColumn(Column column){
+    return columns.add(column);
+  }
 
   public String getName() {
     return name;

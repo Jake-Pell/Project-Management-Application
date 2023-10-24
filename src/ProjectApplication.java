@@ -50,8 +50,8 @@ public class ProjectApplication {
         return currentProject.changeTitle(title);
     }
 
-    public boolean addColumn(Project project, String columnName) {
-        return false;
+    public boolean addColumn(String columnName) {
+        return currentProject.addColumn(columnName);
     }
 
     public boolean editColumnName(Column column, String columnName) {
