@@ -18,4 +18,5 @@ public abstract class DataConstants {
 
   // Column
   protected final static String COLUMN_NAME = "name";
+  protected final static String COLUMN_TASKS = "tasks";
 }

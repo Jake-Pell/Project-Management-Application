@@ -104,6 +104,15 @@ public class DataWriter extends DataConstants {
 	public static JSONObject getColumnJSON(Column column) {
 		JSONObject columnDetails = new JSONObject();
 		columnDetails.put(PROJECT_NAME, column.getName());
+
+		JSONArray columnTasks = new JSONArray();
+		ArrayList<Task> tasks = column.getTasks();
+		if (tasks != null && !tasks.isEmpty()) {
+			for (Task t : tasks) {
+				columnTasks.add(t.getID().toString());
+			}
+		}
+		columnDetails.put(COLUMN_TASKS, columnTasks);
 		return columnDetails;
 	}
 	
