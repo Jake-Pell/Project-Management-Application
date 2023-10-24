@@ -31,8 +31,8 @@ public class Task {
   public ArrayList<User> setAssignedUsers(){
       return null;
   }
-  public void addComment(User author, String description){
-
+  public boolean addComment(Comment comment){
+    return comments.add(comment);
   }
   
   // Setters 
@@ -42,7 +42,7 @@ public class Task {
   public void setPriority(int newPriority){
     this.priority = newPriority;
   }
-  
+
   public void setDescription(String description) {
     this.description = description;
   }
