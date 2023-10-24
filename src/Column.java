@@ -20,7 +20,7 @@ public class Column {
     }
 
     public boolean addTasks(Task task){
-        return true;
+        return tasks.add(task);
     }
 
     public Task removeTask(Task task){
