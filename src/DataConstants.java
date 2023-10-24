@@ -19,4 +19,10 @@ public abstract class DataConstants {
   // Column
   protected final static String COLUMN_NAME = "name";
   protected final static String COLUMN_TASKS = "tasks";
+
+  // Comment
+  protected final static String COMMENT_AUTHOR = "author";
+  protected final static String COMMENT_DESCRIPTION = "description";
+  protected final static String COMMENT_DATE = "date";
+  protected final static String COMMENT_REPLIES = "replies";
 }
