@@ -26,14 +26,13 @@ public class Task {
     }
   }
   public void setPriority(int newPriority){
-  
+    this.priority = newPriority;
   }
   public ArrayList<User> setAssignedUsers(){
       return null;
   }
-  public void addComment(User author, String description)
-  {
-    
+  public void addComment(User author, String description){
+
   }
 
   public UUID getID() {

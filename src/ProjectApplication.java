@@ -62,8 +62,9 @@ public class ProjectApplication {
 
     }
 
-    public void createTask(Project project, Column column, String taskname, String descriprion, int priority) {
-
+    public boolean createTask(Column column, String taskname, String descriprion, int priority) {
+        Task task = new Task(taskname, descriprion, priority);
+        return currentProject.addTask(task);
     }
 
     public void editTaskDescription(Task task, String description) {

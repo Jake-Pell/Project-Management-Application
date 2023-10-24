@@ -23,6 +23,10 @@ public class ProjectList {
 		return projects.add(new Project(projectName, author));
 	}
 
+	public static boolean addTask(Task task){
+		return true;
+	}
+
 	public static boolean saveProjects() {
 		return DataWriter.saveProjects();
 	}
