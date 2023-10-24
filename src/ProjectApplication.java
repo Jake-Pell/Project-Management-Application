@@ -66,7 +66,8 @@ public class ProjectApplication {
     }
 
     public boolean addProjectComment(String description) {
-        currentProject.addComment(comment);
+        Comment comment = new Comment(currentUser, description);
+        return currentProject.addComment(comment);
     }
 
     public User getCurrentUser() {
