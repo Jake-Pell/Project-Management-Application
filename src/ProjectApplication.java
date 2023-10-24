@@ -6,6 +6,7 @@ public class ProjectApplication {
     private Project currentProject;
     private UserList userList;
     private ProjectList projectList;
+    private Task currentTask;
 
     public ArrayList<Project> getMyProjects() {
 		return null;
@@ -68,23 +69,24 @@ public class ProjectApplication {
         return currentProject.addTask(task);
     }
 
-    public void editTaskDescription(Task task, String description) {
-
+    public void editTaskDescription(String description) {
+        currentTask.setDescription(description);
     }
 
-    public void editTaskPriority(Task task, int priority) {
-
+    public void editTaskPriority(int priority) {
+        currentTask.setPriority(priority);
     }
 
-    public void editTaskName(Task task, String name) {
-
+    public void editTaskName(String name) {
+        currentTask.setTaskName(name);
     }
 
-    public void addComment(Project project, String description) {
-
+    public boolean addTaskComment(String description) {
+        Comment comment = new Comment(currentUser, description);
+        currentTask.addComment(comment);
     }
 
-    public void addComment(Task task, String description) {
+    public void addProjectComment(String description) {
 
     }
 
