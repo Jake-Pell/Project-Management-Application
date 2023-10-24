@@ -15,6 +15,7 @@ public abstract class DataConstants {
   protected final static String PROJECT_NAME = "name";
   protected final static String PROJECT_USERS = "users";
   protected final static String PROJECT_COLUMNS = "columns";
+  protected final static String PROJECT_COMMENTS = "comments";
 
   // Column
   protected final static String COLUMN_NAME = "name";
@@ -25,4 +26,11 @@ public abstract class DataConstants {
   protected final static String COMMENT_DESCRIPTION = "description";
   protected final static String COMMENT_DATE = "date";
   protected final static String COMMENT_REPLIES = "replies";
+
+  //Task
+  protected final static String TASK_NAME = "name";
+  protected final static String TASK_PRIORITY = "priority";
+  protected final static String TASK_USERS = "users";
+  protected final static String TASK_DESCRIPTION = "description";
+  protected final static String TASK_COMMENTS = "comments";
 }
