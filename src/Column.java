@@ -1,6 +1,5 @@
 // Copyright 2023 Cocky 4
 
-import java.util.UUID;
 import java.util.ArrayList;
 public class Column {
     
@@ -24,7 +23,7 @@ public class Column {
     }
 
     public Task removeTask(Task task){
-        // Implementation
+        tasks.remove(task);
         return task;
     }
 
