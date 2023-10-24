@@ -7,22 +7,15 @@ public class Task {
     private int priority;
     private String description;
     private ArrayList<User> users;
-    private ArrayList<History> columns;
     private ArrayList<Comment> comments;
 
-  public Task(String taskname, String description, int priority){
+  public Task(String taskName, String description, int priority){
     id = UUID.randomUUID();
+    this.taskName = taskName;
+    this.description = description;
+    this.priority = priority;
   }
   
-
-  public boolean changeName(String taskName){
-    if(!taskName.isEmpty()){
-      this.taskName = taskName;
-      return true;
-    }else{
-      return false;
-    }
-  }
 
   public UUID getID() {
     return id;
@@ -36,15 +29,30 @@ public class Task {
   }
   
   // Setters 
-  public void setTaskName(String taskName) {
-    this.taskName = taskName;
+  public boolean setTaskName(String taskName) {
+    if(!taskName.isEmpty()){
+      this.taskName = taskName;
+      return true;
+    }else{
+      return false;
+    }
   }
-  public void setPriority(int newPriority){
-    this.priority = newPriority;
+  public boolean setPriority(int newPriority){
+    if(priority >= 0){
+      this.priority = newPriority;
+      return true;
+    }else {
+      return false;
+    }
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public boolean setDescription(String description) {
+    if(!description.isEmpty()){
+      this.description = description;
+      return true;
+    }else {
+      return false;
+    }
   }
 
 

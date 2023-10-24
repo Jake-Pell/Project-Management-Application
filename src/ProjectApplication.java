@@ -69,21 +69,21 @@ public class ProjectApplication {
         return currentProject.addTask(task);
     }
 
-    public void editTaskDescription(String description) {
-        currentTask.setDescription(description);
+    public boolean editTaskDescription(String description) {
+        return currentTask.setDescription(description);
     }
 
-    public void editTaskPriority(int priority) {
-        currentTask.setPriority(priority);
+    public boolean editTaskPriority(int priority) {
+        return currentTask.setPriority(priority);
     }
 
-    public void editTaskName(String name) {
-        currentTask.setTaskName(name);
+    public boolean editTaskName(String name) {
+        return currentTask.setTaskName(name);
     }
 
     public boolean addTaskComment(String description) {
         Comment comment = new Comment(currentUser, description);
-        currentTask.addComment(comment);
+        return currentTask.addComment(comment);
     }
 
     public void addProjectComment(String description) {
