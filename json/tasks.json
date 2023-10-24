@@ -1,17 +1,24 @@
 [
   {
-    "taskName": "hi",
+    "id": "8301487293479321",
+    "name": "hi",
     "priority": 1,
-    "assignedUsers":["id1","id2"],
+    "users":["id1","id2"],
     "description":"Get them done",
-    "comments":["cmt1ID","cmt2ID"]
-  },
-  {
-    "taskName": "task2",
-    "priority": 2,
-    "assignedUsers":["id3","id4"],
-    "description":"NEW TASK",
-    "comments":["cmt3ID","cmt4ID"]
+    "comments":[
+      {
+        "author":"UserID",
+        "description":"easy peasy",
+        "date":"dateFormat",
+        "replies":[
+          {
+            "author":"UserID",
+            "description":"nice ",
+            "date":"10/24/23"
+          }
+        ]
+      }
+    ]
   }
 
 ]
