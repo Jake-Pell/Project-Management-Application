@@ -55,6 +55,11 @@ public class Task {
     }
   }
 
+  // getters
+  public String getName() {
+    return taskName;
+  }
+
 
 
   
