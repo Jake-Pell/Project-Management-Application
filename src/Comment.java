@@ -19,10 +19,22 @@ public class Comment {
        
     }
     public boolean addReply(Comment comment){
-
-
-
-
         return true;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public ArrayList<Comment> getReplies() {
+        return replies;
     }
 }
