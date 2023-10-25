@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class ProjectApplication {
 
     private User currentUser;
@@ -8,10 +6,6 @@ public class ProjectApplication {
     private ProjectList projectList;
     private Task currentTask;
     private Column currentColumn;
-
-    public ArrayList<Project> getMyProjects() {
-		return null;
-	}
 
     public ProjectApplication(){
         userList = UserList.getInstance();
