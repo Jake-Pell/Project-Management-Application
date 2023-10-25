@@ -77,7 +77,7 @@ public class Project {
   }
 
   public boolean addTask(Task task) {
-    return columns.get(0).addTasks(task);
+    return columns.get(0).addTask(task);
   }
 }
 

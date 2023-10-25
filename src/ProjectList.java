@@ -31,16 +31,16 @@ public class ProjectList {
 		return DataWriter.saveProjects();
 	}
 
-	public ArrayList<Project> getProjects() {
+	public static ArrayList<Project> getProjects() {
 		return projects;
 	}
 
-	public static Project getProjectByName(String name) {
-		if (projects == null || projects.isEmpty()) {
-			for (Project p : projects) {
-				if (p.getName().equals(name))
-					return p;
-			}
+	public static Project getProject(String name) {
+		if (projects == null || projects.isEmpty())
+			return null;
+		for (Project p : projects) {
+			if (p.getName().equals(name))
+				return p;
 		}
 		return null;
 	}

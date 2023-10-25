@@ -27,29 +27,25 @@ public class ProjectApplication {
     }
 
     public boolean login(String userName, String password) {
-        // currentUser = UserList.getInstance().getUser(userName, password);
-        currentUser = userList.getUser(userName, password);
+        currentUser = UserList.getUser(userName, password);
         return currentUser != null;
     }
 
     public void logout(){
-        userList.saveUsers();
+        UserList.saveUsers();
     }
 
     public boolean signUp(String firstName, String lastName, String userName, String password) {
-        return userList.addUser(firstName, lastName, userName, password);
+        return UserList.addUser(firstName, lastName, userName, password);
     }
 
     public boolean addProject(String projectName) {
-        return projectList.addProject(projectName, currentUser);
+        return ProjectList.addProject(projectName, currentUser);
     }
 
     public boolean setCurrentProject(String name) {
-        Project newCurrent = ProjectList.getProjectByName(name);
-        if (newCurrent == null)
-            return false;
-        currentProject = newCurrent;
-        return true;
+        currentProject = ProjectList.getProject(name);
+        return currentProject != null;
     }
 
     public boolean editProjectName(String title) {
