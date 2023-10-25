@@ -6,6 +6,7 @@ public class UI {
         System.out.println("Set Current Project: " + test.setCurrentProject("new project"));
         System.out.println("Create Task: " + test.createTask("test", "test description", 3));
 
-        ProjectList.saveProjects();
+        test.saveProjects();
+
        }
 }
