@@ -24,7 +24,7 @@ public class Project {
 
   }
  
-  public boolean changeTitle(String newName){
+  public boolean setName(String newName){
     if(!newName.isEmpty()){
       this.name = newName;
       return true;
@@ -44,9 +44,27 @@ public class Project {
     return users.add(user);
   }
 
-  public boolean moveColumn(Column column, Direction direction){  
+  public boolean moveColumn(Column column, String direction){  
+
+    int start = columns.indexOf(column);
+    if(direction.equals(Direction.RIGHT) && start + 1 < columns.size()){
+        return swapColumn(column, start, start + 1);
+    }else if(direction.equals(Direction.LEFT) && start > 0){
+          return swapColumn(column, start, start - 1);
+    }else {
+        return false;
+    }
+
+
+  }
+
+  private boolean swapColumn(Column column, int start, int end){
+    Column temp = column;
+    columns.set(start, columns.get(end));
+    columns.set(end,temp);
     return true;
   }
+
 
   public boolean addComment(Comment comment){
     return comments.add(comment);
