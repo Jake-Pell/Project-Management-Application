@@ -4,10 +4,11 @@ import java.util.ArrayList;
 public class Column {
     
     private String name;
-    private ArrayList<Task> tasks;
+    private ArrayList<Task> tasks = new ArrayList<Task>();
 
     public Column(String name){
         this.name = name;
+
     }
 
     public String getName(){
@@ -18,7 +19,7 @@ public class Column {
         return tasks;
     }
 
-    public boolean addTasks(Task task){
+    public boolean addTask(Task task){
         return tasks.add(task);
     }
 
@@ -34,6 +35,16 @@ public class Column {
         } else {
             return false;
         }
+    }
+
+    public Task getTask(String name) {
+        if (tasks == null || tasks.isEmpty())
+            return null;
+        for (Task t : tasks) {
+            if (t.getName().equals(name))
+                return t;
+        }
+        return null;
     }
 
 

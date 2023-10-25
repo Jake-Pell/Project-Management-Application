@@ -17,21 +17,31 @@ public class ProjectList {
 
 	}
 
-	public static boolean addProject(String projectName, User author) {
+	public boolean addProject(String projectName, User author) {
 		if (projectList == null)
 			return false;
 		return projects.add(new Project(projectName, author));
 	}
 
-	public static boolean addTask(Task task){
+	public boolean addTask(Task task){
 		return true;
 	}
 
-	public static boolean saveProjects() {
+	public boolean saveProjects() {
 		return DataWriter.saveProjects();
 	}
 
 	public ArrayList<Project> getProjects() {
 		return projects;
+	}
+
+	public Project getProject(String name) {
+		if (projects == null || projects.isEmpty())
+			return null;
+		for (Project p : projects) {
+			if (p.getName().equals(name))
+				return p;
+		}
+		return null;
 	}
 }

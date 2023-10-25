@@ -16,14 +16,14 @@ public class UserList {
 		return userList;
 	}
 
-	public static boolean addUser(String firstName, String lastName, 
+	public boolean addUser(String firstName, String lastName, 
 								String username, String password) {
 		if (userList == null) 
 			return false;
 		return users.add(new User(firstName, lastName, username, password));
 	}
 
-	public static User getUser(String username, String password) {
+	public User getUser(String username, String password) {
 		for (User u : users) {
 			if (u.getUsername().equals(username) && u.getPassword().equals(password))
 				return u;
@@ -31,7 +31,7 @@ public class UserList {
 		return null;
 	}
 
-	public static boolean saveUsers() {
+	public boolean saveUsers() {
 		return DataWriter.saveUsers();
 	}
 
