@@ -43,7 +43,7 @@ public class ProjectApplication {
     }
 
     public boolean editProjectName(String title) {
-        return currentProject.changeTitle(title);
+        return currentProject.setName(title);
     }
 
     public void saveProjects() {
@@ -59,8 +59,9 @@ public class ProjectApplication {
         return currentColumn.setName(columnName);
     }
 
-    public boolean moveColumn(Column column, Direction direction) {
-        return true;
+    // TODO ask about direction
+    public boolean moveColumn(String direction) {
+        return currentProject.moveColumn(currentColumn, direction);
     }
 
     public boolean addProjectComment(String description) {

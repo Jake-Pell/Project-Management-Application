@@ -1,0 +1,9 @@
+Meeting Notes 10/25/2023
+
+- In replies: take out chunk in for loop and do comment.add(getCommentJSON(r));
+- Work on DataLoader (2 people)
+- convert UUID into User object (get user by ID)
+- Move columns using index for multiple moves at once instead of one at a time
+- In UI, break down into scenarios as methods to make testing easier (comment out other scenarios while testing, no user interaction required yet)
+- Eventually will need to check username, password requirements, etc.
+- Get done 2 days early to have more time for testing

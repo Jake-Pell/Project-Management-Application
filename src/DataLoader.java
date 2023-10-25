@@ -52,18 +52,9 @@ public class DataLoader extends DataConstants{
 		return projects;
 	}
 
-	// public static void main(String arg[]) {
 
-	// 	ArrayList<User> users = new ArrayList<User>();
-	// 	users = getUsers();
-	// 	for(User user : users){
-	// 		System.out.print(user.getFirstName());
-	// 		System.out.print(user.getLastName());
-	// 		System.out.print(user.getPassword());
-	// 		System.out.println(user.getUsername());
-			
-	// 	}
-	// }
+
+
 }
 
 
