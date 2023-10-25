@@ -15,8 +15,9 @@ public class DataWriter extends DataConstants {
 		UserList userList = UserList.getInstance();
 		ArrayList<User> users = userList.getUsers();
 		JSONArray jsonUsers = new JSONArray();
-		for (User u : users) {
-			jsonUsers.add(getUserJSON(u));
+		if (users != null && !users.isEmpty()) {
+			for (User u : users)
+				jsonUsers.add(getUserJSON(u));
 		}
 
 		// write to file
@@ -57,8 +58,10 @@ public class DataWriter extends DataConstants {
 		ProjectList projectList = ProjectList.getInstance();
 		ArrayList<Project> projects = projectList.getProjects();
 		JSONArray jsonProjects = new JSONArray();
-		for (Project p : projects)
-			jsonProjects.add(getProjectJSON(p));
+		if (projects != null && !projects.isEmpty()) {
+			for (Project p : projects)
+				jsonProjects.add(getProjectJSON(p));
+		}
 
 		// write to file
 		try (FileWriter writer = new FileWriter("json/projectTest.json")) { // temp test file name
@@ -80,21 +83,37 @@ public class DataWriter extends DataConstants {
 	 */
 	public static JSONObject getProjectJSON(Project project) {
 		JSONObject projectDetails = new JSONObject();
+
+		// get id and name
 		projectDetails.put(ID, project.getID().toString());
 		projectDetails.put(PROJECT_NAME, project.getName());
 
+		// get users
 		JSONArray projectUsers = new JSONArray();
 		ArrayList<User> users = project.getUsers();
-		for (User u : users) 
-			projectUsers.add(u.getID().toString());
+		if (users != null && !users.isEmpty()) {
+			for (User u : users) 
+				projectUsers.add(u.getID().toString());
+		}
+		projectDetails.put(PROJECT_USERS, projectUsers);
 
+		// get columns
 		JSONArray projectColumns = new JSONArray();
 		ArrayList<Column> columns = project.getColumns();
-		for (Column c : columns) 
-			projectColumns.add(getColumnJSON(c));
-
-		projectDetails.put(PROJECT_USERS, projectUsers);
+		if (columns != null && !columns.isEmpty()) {
+			for (Column c : columns) 
+				projectColumns.add(getColumnJSON(c));
+		}
 		projectDetails.put(PROJECT_COLUMNS, projectColumns);
+
+		// get comments
+		JSONArray projectComments = new JSONArray();
+		ArrayList<Comment> comments = project.getComments();
+		if (comments != null && !comments.isEmpty()) {
+			for (Comment c : comments)
+				projectComments.add(getCommentJSON(c));
+		}
+		projectDetails.put(PROJECT_COMMENTS, projectComments);
 
 		return projectDetails;
 
@@ -113,6 +132,69 @@ public class DataWriter extends DataConstants {
 		}
 		columnDetails.put(COLUMN_TASKS, columnTasks);
 		return columnDetails;
+	}
+
+	public static JSONObject getCommentJSON(Comment comment) {
+		JSONObject commentDetails = new JSONObject();
+
+		// author, description, date
+		commentDetails.put(COMMENT_AUTHOR, comment.getAuthor().getID());
+		commentDetails.put(COMMENT_DESCRIPTION, comment.getDescription());
+		commentDetails.put(COMMENT_DATE, comment.getDate().toString());
+
+		// replies
+		JSONArray commentReplies = new JSONArray();
+		ArrayList<Comment> replies = comment.getReplies();
+		if (replies != null && !replies.isEmpty()) {
+			for (Comment r : replies) {
+				JSONObject reply = new JSONObject();
+				reply.put(COMMENT_AUTHOR, r.getAuthor().getID());
+				reply.put(COMMENT_DESCRIPTION, r.getDescription());
+				reply.put(COMMENT_DATE, r.getDate().toString());
+				commentReplies.add(reply);
+			}
+		}
+		commentDetails.put(COMMENT_REPLIES, commentReplies);
+		
+		return commentDetails;
+	}
+
+
+	public static boolean saveTasks() {
+		JSONArray jsonTasks = new JSONArray();
+		ProjectList projectList = ProjectList.getInstance();
+		ArrayList<Project> projects = projectList.getProjects();
+
+		// loop through every task
+	 	if (projects != null && !projects.isEmpty()) {
+			for (Project p : projects) {
+				ArrayList<Column> columns = p.getColumns(); 
+				if (columns != null && !columns.isEmpty()) {
+					for (Column c : columns) {
+						ArrayList<Task> tasks = c.getTasks();
+						if (tasks != null && !tasks.isEmpty()) {
+							for (Task t : tasks) {
+								jsonTasks.add(getTaskJSON(t));
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// write to file
+		try (FileWriter writer = new FileWriter("json/taskTest.json")) { // temp test file name
+			writer.write(jsonTasks.toJSONString());
+			writer.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public static JSONObject getTaskJSON(Task task) {
+		return null;
 	}
 	
 }
