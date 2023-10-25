@@ -34,4 +34,14 @@ public class ProjectList {
 	public ArrayList<Project> getProjects() {
 		return projects;
 	}
+
+	public static Project getProjectByName(String name) {
+		if (projects == null || projects.isEmpty()) {
+			for (Project p : projects) {
+				if (p.getName().equals(name))
+					return p;
+			}
+		}
+		return null;
+	}
 }
