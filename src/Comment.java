@@ -14,9 +14,10 @@ public class Comment {
     private ArrayList<Comment> replies;
 
 
-    public Comment(User author, String description){
+    public Comment(User author, String description, String date){
         this.author = author;
         this.description = description;
+        this.date = date;
     }
     public boolean addReply(Comment comment){
         return true;
