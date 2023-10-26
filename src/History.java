@@ -8,7 +8,7 @@ public class History {
     private String newChange; 
 
     public History(Date date, String newChange) {
-
+    
     }
 
     public Date getDate() {

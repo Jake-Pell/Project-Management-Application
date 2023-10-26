@@ -44,18 +44,11 @@ public class Project {
     return users.add(user);
   }
 
-  public boolean moveColumn(Column column, String direction){  
+  public boolean moveColumn(Column column, int endIndex){  
 
     int start = columns.indexOf(column);
-    if(direction.equals(Direction.RIGHT) && start + 1 < columns.size()){
-        return swapColumn(column, start, start + 1);
-    }else if(direction.equals(Direction.LEFT) && start > 0){
-          return swapColumn(column, start, start - 1);
-    }else {
-        return false;
-    }
-
-
+    return swapColumn(column, start, endIndex);
+  
   }
 
   private boolean swapColumn(Column column, int start, int end){
