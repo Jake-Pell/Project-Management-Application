@@ -1,8 +1,8 @@
+// Copyright 2023 Cocky 4
+
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Task {
-    private UUID id;
     private String taskName;
     private int priority;
     private String description;
@@ -10,20 +10,22 @@ public class Task {
     private ArrayList<Comment> comments;
 
   public Task(String taskName, String description, int priority){
-    id = UUID.randomUUID();
     this.taskName = taskName;
     this.description = description;
     this.priority = priority;
   }
   
 
-  public UUID getID() {
-    return id;
+  public User assignUser(User user){
+    users.add(user);
+    return user;
   }
- 
-  public ArrayList<User> setAssignedUsers(){
-      return null;
+
+  public User removeUser(User user){
+    users.remove(user);
+    return user;
   }
+
   public boolean addComment(User user, String description){
     Comment comment = new Comment(user, description);
     return comments.add(comment);
@@ -60,8 +62,6 @@ public class Task {
   public String getName() {
     return taskName;
   }
-
-
 
   
 }
