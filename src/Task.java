@@ -63,5 +63,21 @@ public class Task {
     return taskName;
   }
 
+
+  public String getTaskName() {
+    return taskName;
+  }
+
+
+  public int getPriority() {
+    return priority;
+  }
+
+
+  public String getDescription() {
+    return description;
+  }
+
+  
   
 }
