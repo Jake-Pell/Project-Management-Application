@@ -2,6 +2,7 @@
 
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
@@ -9,14 +10,13 @@ public class Comment {
    
     private User author;
     private String description;
-    private Date date;
+    private String date;
     private ArrayList<Comment> replies;
 
 
     public Comment(User author, String description){
         this.author = author;
         this.description = description;
-       
     }
     public boolean addReply(Comment comment){
         return true;
@@ -30,8 +30,10 @@ public class Comment {
         return description;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
     public ArrayList<Comment> getReplies() {
