@@ -25,9 +25,11 @@ public class ProjectApplication {
         return currentUser != null;
     }
 
+
     public void logout(){
         userList.saveUsers();
     }
+
 
     public boolean signUp(String firstName, String lastName, String userName, String password) {
         return userList.addUser(firstName, lastName, userName, password);
