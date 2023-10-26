@@ -17,7 +17,7 @@ public class Comment {
     public Comment(User author, String description){
         this.author = author;
         this.description = description;
-        this.date = getDate();
+        this.date = getCurrentDate();
     }
     public boolean addReply(Comment comment){
         return true;
@@ -31,10 +31,14 @@ public class Comment {
         return description;
     }
 
-    public String getDate() {
+    public String getCurrentDate() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public ArrayList<Comment> getReplies() {
