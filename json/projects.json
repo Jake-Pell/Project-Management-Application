@@ -5,12 +5,54 @@
     "users":["userID1", "userID2"],
     "columns": [
       {
-        "name":"bug",
-        "tasks":["task1ID","task2ID"]
+        "name":"Backlog",
+        "tasks":[
+          {
+            "name": "fix bugs",
+            "priority": 2,
+            "users":["id1","id2"],
+            "description":"fix",
+            "comments":[
+              {
+                "author":"UserID",
+                "description":"ok",
+                "date":"dateFormat",
+                "replies":[
+                  {
+                    "author":"UserID",
+                    "description":"thanks ",
+                    "date":"10/26/23"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
         "name":"InProgress",
-        "tasks":["taskID3", "taskID4"]
+        "tasks":[
+          {
+            "name": "hi",
+            "priority": 1,
+            "users":["id1","id2"],
+            "description":"Get them done",
+            "comments":[
+              {
+                "author":"UserID",
+                "description":"easy peasy",
+                "date":"dateFormat",
+                "replies":[
+                  {
+                    "author":"UserID",
+                    "description":"nice ",
+                    "date":"10/24/23"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ],
     "comments":[
