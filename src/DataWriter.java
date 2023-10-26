@@ -127,7 +127,7 @@ public class DataWriter extends DataConstants {
 		ArrayList<Task> tasks = column.getTasks();
 		if (tasks != null && !tasks.isEmpty()) {
 			for (Task t : tasks) {
-				columnTasks.add(t.getID().toString());
+				columnTasks.add(getTaskJSON(t));
 			}
 		}
 		columnDetails.put(COLUMN_TASKS, columnTasks);
@@ -147,11 +147,7 @@ public class DataWriter extends DataConstants {
 		ArrayList<Comment> replies = comment.getReplies();
 		if (replies != null && !replies.isEmpty()) {
 			for (Comment r : replies) {
-				JSONObject reply = new JSONObject();
-				reply.put(COMMENT_AUTHOR, r.getAuthor().getID().toString());
-				reply.put(COMMENT_DESCRIPTION, r.getDescription());
-				//reply.put(COMMENT_DATE, r.getDate().toString());
-				commentReplies.add(reply);
+				commentReplies.add(getCommentJSON(r));
 			}
 		}
 		commentDetails.put(COMMENT_REPLIES, commentReplies);
@@ -159,42 +155,33 @@ public class DataWriter extends DataConstants {
 		return commentDetails;
 	}
 
-
-	public static boolean saveTasks() {
-		JSONArray jsonTasks = new JSONArray();
-		ProjectList projectList = ProjectList.getInstance();
-		ArrayList<Project> projects = projectList.getProjects();
-
-		// loop through every task
-	 	if (projects != null && !projects.isEmpty()) {
-			for (Project p : projects) {
-				ArrayList<Column> columns = p.getColumns(); 
-				if (columns != null && !columns.isEmpty()) {
-					for (Column c : columns) {
-						ArrayList<Task> tasks = c.getTasks();
-						if (tasks != null && !tasks.isEmpty()) {
-							for (Task t : tasks) {
-								jsonTasks.add(getTaskJSON(t));
-							}
-						}
-					}
-				}
-			}
-		}
-
-		// write to file
-		try (FileWriter writer = new FileWriter("json/taskTest.json")) { // temp test file name
-			writer.write(jsonTasks.toJSONString());
-			writer.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-
 	public static JSONObject getTaskJSON(Task task) {
-		return null;
+		JSONObject taskDetails = new JSONObject();
+
+		// name, priority, description
+		taskDetails.put(TASK_NAME, task.getName());
+		taskDetails.put(TASK_PRIORITY, task.getPriority());
+		taskDetails.put(TASK_DESCRIPTION, task.getDescription());
+		//users
+		ArrayList<User> users = task.getUsers();
+		JSONArray taskUsers = new JSONArray();
+		if (users != null && !users.isEmpty()) {
+			for (User u : users) 
+				taskUsers.add(u.getID().toString());
+		}
+		taskDetails.put(TASK_USERS, taskUsers);
+
+		//comments
+		JSONArray taskComments = new JSONArray();
+		ArrayList<Comment> comments = task.getComments();
+		if (comments != null && !comments.isEmpty()) {
+			for (Comment c : comments)
+				taskComments.add(getCommentJSON(c));
+		}
+		taskDetails.put(PROJECT_COMMENTS, taskComments);
+
+
+		return taskDetails;
 	}
 	
 }
