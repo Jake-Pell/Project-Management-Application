@@ -54,20 +54,20 @@ public class ProjectApplication {
 
     // Column related functions
     public boolean addColumn(String columnName) {
-        return currentProject.addColumn(new Column(columnName));
+        return currentProject.addColumn(columnName);
     }
 
     public boolean editColumnName(String columnName) {
         return currentColumn.setName(columnName);
     }
 
-    // TODO ask about direction
+    // Assume the end index to ve valid
     public boolean moveColumn(int endIndex) {
         return currentProject.moveColumn(currentColumn, endIndex);
     }
 
     public boolean addProjectComment(String description) {
-        return currentProject.addComment(new Comment(currentUser, description));
+        return currentProject.addComment(currentUser, description);
     }
 
     public boolean setCurrentColumn(String name) {

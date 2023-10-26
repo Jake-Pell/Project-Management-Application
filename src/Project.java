@@ -60,7 +60,8 @@ public class Project {
   }
 
 
-  public boolean addComment(Comment comment){
+  public boolean addComment(User user, String description){
+    Comment comment = new Comment(user, description);
     return comments.add(comment);
   }
   
