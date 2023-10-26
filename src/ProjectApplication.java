@@ -68,13 +68,22 @@ public class ProjectApplication {
         return currentProject.addComment(new Comment(currentUser, description));
     }
 
+    public boolean setCurrentColumn(String name) {
+        if (currentProject == null)
+            return false;
+        currentColumn = currentProject.getColumn(name);
+        return currentColumn != null;
+    }
+
     public User getCurrentUser() {
         return currentUser;
     }
 
     // Task related functions
     public boolean createTask(String taskname, String descriprion, int priority) {
-        return currentProject.addTask(new Task(taskname, descriprion, priority));
+        if (currentColumn == null)
+            return false;
+        return currentColumn.addTask(new Task(taskname, descriprion, priority));
     }
 
     public boolean editTaskDescription(String description) {
@@ -97,7 +106,10 @@ public class ProjectApplication {
         return true;
     }
 
-    public void setTask(Task task) {
-        currentTask = task;
+    public boolean setCurrentTask(String name) {
+        if (currentColumn == null)
+            return false;
+        currentTask = currentColumn.getTask(name);
+        return currentTask != null;
     }
 }

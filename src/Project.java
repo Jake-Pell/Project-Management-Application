@@ -87,6 +87,8 @@ public class Project {
     return comments;
   }
 
+  // I dont think we need this anymore
+  // Changed createTask to add to current column in the facade
   public boolean addTask(Task task) {
     return columns.get(0).addTask(task);
   }

@@ -138,9 +138,9 @@ public class DataWriter extends DataConstants {
 		JSONObject commentDetails = new JSONObject();
 
 		// author, description, date
-		commentDetails.put(COMMENT_AUTHOR, comment.getAuthor().getID());
+		commentDetails.put(COMMENT_AUTHOR, comment.getAuthor().getID().toString());
 		commentDetails.put(COMMENT_DESCRIPTION, comment.getDescription());
-		commentDetails.put(COMMENT_DATE, comment.getDate().toString());
+		//commentDetails.put(COMMENT_DATE, comment.getDate().toString()); // need to add date still
 
 		// replies
 		JSONArray commentReplies = new JSONArray();
@@ -148,9 +148,9 @@ public class DataWriter extends DataConstants {
 		if (replies != null && !replies.isEmpty()) {
 			for (Comment r : replies) {
 				JSONObject reply = new JSONObject();
-				reply.put(COMMENT_AUTHOR, r.getAuthor().getID());
+				reply.put(COMMENT_AUTHOR, r.getAuthor().getID().toString());
 				reply.put(COMMENT_DESCRIPTION, r.getDescription());
-				reply.put(COMMENT_DATE, r.getDate().toString());
+				//reply.put(COMMENT_DATE, r.getDate().toString());
 				commentReplies.add(reply);
 			}
 		}
