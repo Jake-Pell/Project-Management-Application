@@ -101,7 +101,10 @@ public class ProjectApplication {
     }
 
     public boolean addTaskComment(String description) {
-        return currentTask.addComment(currentUser, description);
+        if(!ifNull(currentTask)) {
+            return currentTask.addComment(currentUser, description);
+        }
+        return false;
     }
 
     public boolean moveTask(String direction){ 
@@ -109,9 +112,17 @@ public class ProjectApplication {
     }
 
     public boolean setCurrentTask(String name) {
-        if (currentColumn == null)
-            return false;
-        currentTask = currentColumn.getTask(name);
-        return currentTask != null;
+        if(!ifNull(currentColumn)){
+            currentTask = currentColumn.getTask(name);
+        }
+        return false;
+    }
+
+    // returns true if it's null
+    private boolean ifNull(Object o){
+        if( o.equals(null)){
+            return true;
+        } 
+        return false;
     }
 }
