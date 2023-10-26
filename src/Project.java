@@ -7,13 +7,17 @@ public class Project {
 
   private UUID id;
   private String name;
-  private ArrayList<User> users = new ArrayList<User>();
-  private ArrayList<Column> columns = new ArrayList<Column>();
-  private ArrayList<Comment> comments = new ArrayList<Comment>();
+  private ArrayList<User> users;
+  private ArrayList<Column> columns;
+  private ArrayList<Comment> comments;
 
   public Project(String name, User user){
     id = UUID.randomUUID();
     this.name = name;
+    users = new ArrayList<User>();
+    columns = new ArrayList<Column>();
+    comments = new ArrayList<Comment>();
+
     addUser(user);
 
     // default project columns
@@ -22,6 +26,15 @@ public class Project {
     addColumn("In Progress");
     addColumn("Completed");
 
+  }
+
+  // constructor called by DataLoader
+  public Project(String id, String name, ArrayList<User> users, 
+                  ArrayList<Column> columns, ArrayList<Comment> comments) {
+    this.id = UUID.fromString(id);
+    this.users = users;
+    this.columns = columns;
+    this.comments = comments;
   }
  
   public boolean setName(String newName){
