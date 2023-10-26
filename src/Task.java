@@ -78,6 +78,16 @@ public class Task {
     return description;
   }
 
+
+  public ArrayList<User> getUsers() {
+    return users;
+  }
+
+
+  public ArrayList<Comment> getComments() {
+    return comments;
+  }
+
   
   
 }
