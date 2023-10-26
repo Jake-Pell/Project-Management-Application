@@ -97,7 +97,11 @@ public class ProjectApplication {
     }
 
     public boolean editTaskName(String name) {
-        return currentTask.setTaskName(name);
+        if(!ifNull(currentTask)){
+            return currentTask.setTaskName(name);
+        }
+
+        return false;
     }
 
     public boolean addTaskComment(String description) {
