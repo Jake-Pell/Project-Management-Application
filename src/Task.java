@@ -24,7 +24,8 @@ public class Task {
   public ArrayList<User> setAssignedUsers(){
       return null;
   }
-  public boolean addComment(Comment comment){
+  public boolean addComment(User user, String description){
+    Comment comment = new Comment(user, description, );
     return comments.add(comment);
   }
   
