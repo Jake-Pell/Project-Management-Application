@@ -60,8 +60,8 @@ public class ProjectApplication {
     }
 
     // TODO ask about direction
-    public boolean moveColumn(String direction) {
-        return currentProject.moveColumn(currentColumn, direction);
+    public boolean moveColumn(int endIndex) {
+        return currentProject.moveColumn(currentColumn, endIndex);
     }
 
     public boolean addProjectComment(String description) {
