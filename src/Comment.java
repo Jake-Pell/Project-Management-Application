@@ -14,7 +14,7 @@ public class Comment {
     private ArrayList<Comment> replies;
 
 
-    public Comment(User author, String description, String date){
+    public Comment(User author, String description){
         this.author = author;
         this.description = description;
         this.date = date;

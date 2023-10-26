@@ -101,7 +101,7 @@ public class ProjectApplication {
     }
 
     public boolean addTaskComment(String description) {
-        return currentTask.addComment(new Comment(currentUser, description));
+        return currentTask.addComment(currentUser, description);
     }
 
     public boolean moveTask(String direction){ 

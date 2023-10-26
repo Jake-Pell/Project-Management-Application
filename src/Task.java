@@ -25,7 +25,7 @@ public class Task {
       return null;
   }
   public boolean addComment(User user, String description){
-    Comment comment = new Comment(user, description, );
+    Comment comment = new Comment(user, description);
     return comments.add(comment);
   }
   
