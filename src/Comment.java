@@ -17,7 +17,7 @@ public class Comment {
     public Comment(User author, String description){
         this.author = author;
         this.description = description;
-        this.date = date;
+        this.date = getDate();
     }
     public boolean addReply(Comment comment){
         return true;
