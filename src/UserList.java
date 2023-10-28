@@ -16,9 +16,9 @@ public class UserList {
 		return userList;
 	}
 
-	public boolean addUser(String firstName, String lastName, 
-								String username, String password) {
-		if (userList == null) 
+	public boolean addUser(String firstName, String lastName,
+			String username, String password) {
+		if (userList == null)
 			return false;
 		return users.add(new User(firstName, lastName, username, password));
 	}
@@ -29,6 +29,17 @@ public class UserList {
 				return u;
 		}
 		return null;
+	}
+
+	// Get user by only username, for interacting with other
+	// users purposes
+	public User getUser(String username){
+		for(User u : users)	{
+			if (u.getUsername().equals(username)){
+				return u;
+			}
+		}
+		return null;	
 	}
 
 	public boolean saveUsers() {

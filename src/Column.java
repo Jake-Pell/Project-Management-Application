@@ -19,8 +19,8 @@ public class Column {
         return tasks;
     }
 
-    public boolean addTask(Task task){
-        return tasks.add(task);
+    public boolean addTask(String name, String description, int priority){
+        return tasks.add(new Task(name, description, priority));
     }
 
     public Task removeTask(Task task){
