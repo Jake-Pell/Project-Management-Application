@@ -59,10 +59,12 @@ public class UI {
     public static void scenario4() {
         ProjectApplication pa = new ProjectApplication();
         pa.login("rwhite@gmail.com", "803-565-4433");
-        ArrayList<Project> projects = pa.getUserProjects();
-        for(Project project: projects ){
-            System.out.println(project);
-        }
+        // ArrayList<Project> projects = pa.getUserProjects();
+        // for(Project project: projects ){
+        //     System.out.println(project);
+        // }
+        pa.addProject("HASHEM");
+        pa.saveProjects();
 
     }
 }

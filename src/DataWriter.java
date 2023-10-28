@@ -63,8 +63,8 @@ public class DataWriter extends DataConstants {
 				jsonProjects.add(getProjectJSON(p));
 		}
 
-		// write to file
-		try (FileWriter writer = new FileWriter("json/projectTest.json")) { // temp test file name
+		// write to file, Changed to filePath to be the real projcets
+		try (FileWriter writer = new FileWriter("json/projects.json")) { 
 			writer.write(jsonProjects.toJSONString());
 			writer.flush();
 		} catch (IOException e) {
