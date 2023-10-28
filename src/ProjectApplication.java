@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class ProjectApplication {
 
     private User currentUser;
@@ -20,6 +22,7 @@ public class ProjectApplication {
 
     }
 
+    // Login related methods
     public boolean login(String userName, String password) {
         currentUser = userList.getUser(userName, password);
         return currentUser != null;
@@ -35,6 +38,7 @@ public class ProjectApplication {
         return userList.addUser(firstName, lastName, userName, password);
     }
 
+    // Project related methods
     public boolean addProject(String projectName) {
         return projectList.addProject(projectName, currentUser);
     }
@@ -50,6 +54,20 @@ public class ProjectApplication {
 
     public void saveProjects() {
         projectList.saveProjects();
+    }
+
+    // Returns projects that currentUser is inside
+    public ArrayList<Project> getUserProjects(){
+        ArrayList<Project> currProjects = projectList.getProjects();
+        ArrayList<Project> ans = new ArrayList<Project>();
+
+        for(Project project : currProjects){
+            if(project.containUser(currentUser)){
+                ans.add(project);
+            }
+        }
+
+        return ans;
     }
 
     // Column related functions
@@ -111,6 +129,7 @@ public class ProjectApplication {
         return false;
     }
 
+    
     public boolean moveTask(String direction){ 
         return true;
     }

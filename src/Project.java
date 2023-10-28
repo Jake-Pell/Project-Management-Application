@@ -48,15 +48,11 @@ public class Project {
   }
 
 
-
+  // Column related methods
   public boolean addColumn(String columnName){
     return columns.add(new Column(columnName));
   }
   
-  public boolean addUser(User user){
-    return users.add(user);
-  }
-
   public boolean moveColumn(Column column, int endIndex){  
 
     int start = columns.indexOf(column);
@@ -70,6 +66,18 @@ public class Project {
     columns.set(start, columns.get(end));
     columns.set(end,temp);
     return true;
+  }
+
+  // User related methods 
+  public boolean containUser(User user){
+    if(users.contains(user)){
+      return true;
+    }
+    return false;
+  }
+
+  public boolean addUser(User user){
+    return users.add(user);
   }
 
 

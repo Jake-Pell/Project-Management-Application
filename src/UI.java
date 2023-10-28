@@ -1,9 +1,12 @@
+// Copyright 2023 Cocky 4 
+import java.util.*;
+
 public class UI {
     public static void main(String[] args) {
-        scenario1();
-        scenario2();
-        scenario3();
-        
+        // scenario1();
+        // scenario2();
+        // scenario3();
+        scenario4(); 
 // Add scenarios, put tests into method
 
        }
@@ -53,4 +56,13 @@ public class UI {
         test3.saveProjects();
     }
 
+    public static void scenario4() {
+        ProjectApplication pa = new ProjectApplication();
+        pa.login("rwhite@gmail.com", "803-565-4433");
+        ArrayList<Project> projects = pa.getUserProjects();
+        for(Project project: projects ){
+            System.out.println(project);
+        }
+
+    }
 }
