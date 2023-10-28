@@ -1,74 +1,41 @@
 [
   {
-    "project_id": "2dff2370-663e-11ee-8c99-0242ac120002",
-    "project_name": "Sample Project",
-    "users":["userID1", "userID2"],
+    "comments": [],
     "columns": [
       {
-        "name":"Backlog",
-        "tasks":[
-          {
-            "name": "fix bugs",
-            "priority": 2,
-            "users":["id1","id2"],
-            "description":"fix",
-            "comments":[
-              {
-                "author":"UserID",
-                "description":"ok",
-                "date":"dateFormat",
-                "replies":[
-                  {
-                    "author":"UserID",
-                    "description":"thanks ",
-                    "date":"10/26/23"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+        "project_name": "Backlog",
+        "tasks": []
       },
       {
-        "name":"InProgress",
-        "tasks":[
+        "project_name": "To Do",
+        "tasks": []
+      },
+      {
+        "project_name": "In Progress",
+        "tasks": []
+      },
+      {
+        "project_name": "Completed",
+        "tasks": []
+      },
+      {
+        "project_name": "bache haye gol",
+        "tasks": [
           {
-            "name": "hi",
-            "priority": 1,
-            "users":["id1","id2"],
-            "description":"Get them done",
-            "comments":[
-              {
-                "author":"UserID",
-                "description":"easy peasy",
-                "date":"dateFormat",
-                "replies":[
-                  {
-                    "author":"UserID",
-                    "description":"nice ",
-                    "date":"10/24/23"
-                  }
-                ]
-              }
-            ]
+            "comments": [],
+            "name": "salo",
+            "description": " saf shodim be mola",
+            "priority": 0,
+            "users": []
           }
         ]
       }
     ],
-    "comments":[
-      {
-        "author":"UserID",
-        "description":"easy peasy",
-        "date":"dateFormat",
-        "replies":[
-          {
-            
-          },
-          {
-
-          }
-        ]
-      }
+    "id": "391adeb0-9dea-4b49-a2ca-95f66b166966",
+    "project_name": "Noep",
+    "users": [
+      "a01486ea-663d-11ee-8c99-0242ac120002",
+      "e1c3919e-663d-11ee-8c99-0242ac120002"
     ]
-    }
+  }
 ]
