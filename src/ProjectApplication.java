@@ -168,6 +168,13 @@ public class ProjectApplication {
         currentColumn.addTask(name,description, priority);
         return setCurrentTask(name);
     }
+
+    public User addUserToTask(String username){
+        User newUser = userList.getUser(username);
+        if (!ifNull(currentTask))
+            currentTask.assignUser(newUser);
+        return newUser;
+    }
     // ---End of Task---
 
     // Private helper methods
