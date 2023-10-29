@@ -75,6 +75,7 @@ public class UI {
         pa.moveColumn(2);
         System.out.println(pa.moveTask(2));
         pa.addProject("TESTING");
+        pa.addTaskComment("salam bache haye gol");
         // pa.setCurrentProject("")
         pa.logout();
         // pa.saveProjects();
