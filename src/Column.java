@@ -4,11 +4,16 @@ import java.util.ArrayList;
 public class Column {
     
     private String name;
-    private ArrayList<Task> tasks = new ArrayList<Task>();
+    private ArrayList<Task> tasks;
 
     public Column(String name){
         this.name = name;
+        tasks = new ArrayList<Task>();
+    }
 
+    // constructor called by DataLoader
+    public Column(String name, ArrayList<Task> tasks) {
+        this.tasks = tasks;
     }
 
     public String getName(){
