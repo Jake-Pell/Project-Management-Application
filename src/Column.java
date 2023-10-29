@@ -13,6 +13,7 @@ public class Column {
 
     // constructor called by DataLoader
     public Column(String name, ArrayList<Task> tasks) {
+        this.name = name;
         this.tasks = tasks;
     }
 

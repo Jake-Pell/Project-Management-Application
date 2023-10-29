@@ -171,7 +171,7 @@ public class ProjectApplication {
 
     public User addUserToTask(String username){
         User newUser = userList.getUser(username);
-        if (!ifNull(currentTask))
+        if (currentTask != null && newUser != null)
             currentTask.assignUser(newUser);
         return newUser;
     }
@@ -180,7 +180,7 @@ public class ProjectApplication {
     // Private helper methods
     // returns true if it's null
     private boolean ifNull(Object o) {
-        if (o.equals(null)) {
+        if (o == null) {
             return true;
         }
         return false;
