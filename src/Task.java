@@ -13,6 +13,8 @@ public class Task {
     this.taskName = taskName;
     this.description = description;
     this.priority = priority;
+    users = new ArrayList<User>();
+    comments = new ArrayList<Comment>();
   }
   
 
