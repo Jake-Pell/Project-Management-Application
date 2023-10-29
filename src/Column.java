@@ -23,6 +23,10 @@ public class Column {
         return tasks.add(new Task(name, description, priority));
     }
 
+    public boolean addTask(Task task){
+        return tasks.add(task);
+    }
+
     public Task removeTask(Task task){
         tasks.remove(task);
         return task;
@@ -47,5 +51,11 @@ public class Column {
         return null;
     }
 
+    public boolean hasTask(Task task){
+        if(tasks.contains(task)){
+            return true;
+        }
+        return false;
+    }
 
 }

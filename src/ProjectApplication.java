@@ -28,8 +28,10 @@ public class ProjectApplication {
         return currentUser != null;
     }
 
+    // Saving changed information before logging out
     public void logout() {
         userList.saveUsers();
+        projectList.saveProjects();
     }
 
     public boolean signUp(String firstName, String lastName, String userName, String password) {
@@ -125,7 +127,7 @@ public class ProjectApplication {
     public boolean createTask(String taskname, String descriprion, int priority) {
         if (currentColumn == null)
             return false;
-        return currentColumn.addTask(new Task(taskname, descriprion, priority));
+        return currentColumn.addTask(taskname, descriprion, priority);
     }
 
     public boolean editTaskDescription(String description) {
@@ -151,8 +153,8 @@ public class ProjectApplication {
         return false;
     }
 
-    public boolean moveTask(String direction) {
-        return true;
+    public boolean moveTask(int endIndex) {
+        return currentProject.moveTask(currentTask, endIndex);
     }
 
     public boolean setCurrentTask(String name) {
@@ -168,6 +170,7 @@ public class ProjectApplication {
     }
     // ---End of Task---
 
+    // Private helper methods
     // returns true if it's null
     private boolean ifNull(Object o) {
         if (o.equals(null)) {

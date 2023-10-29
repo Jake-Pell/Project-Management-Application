@@ -64,13 +64,20 @@ public class UI {
         // for(Project project: projects ){
         // System.out.println(project);
         // }
-        String projectName = "Noep";
+        String projectName = "Nep";
         pa.addProject(projectName);
         pa.addUserToProject("jwilson@gmail.com");
         pa.addColumn("bache haye gol");
         pa.addTask("salo", " saf shodim be mola", 0);
+        pa.editTaskPriority(3);
+        pa.setCurrentColumn("Backlog");
+        
+        pa.moveColumn(2);
+        System.out.println(pa.moveTask(2));
+        pa.addProject("TESTING");
         // pa.setCurrentProject("")
-        pa.saveProjects();
+        pa.logout();
+        // pa.saveProjects();
 
     }
 }
