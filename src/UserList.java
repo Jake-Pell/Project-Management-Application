@@ -42,6 +42,17 @@ public class UserList {
 		return null;	
 	}
 
+	// get user by UUID
+	// used by DataLoader
+	public User getUserByID(String id) {
+		for(User u : users)	{
+			if (u.getID().toString().equals(id)){
+				return u;
+			}
+		}
+		return null;	
+	}
+
 	public boolean saveUsers() {
 		return DataWriter.saveUsers();
 	}
