@@ -18,9 +18,21 @@ public class Comment {
         this.author = author;
         this.description = description;
         this.date = getCurrentDate();
+        this.replies = new ArrayList<Comment>();
     }
+
+    // constructor called by DataLoader
+    public Comment(User author, String description, String date, ArrayList<Comment> replies) {
+        this.author = author;
+        this.description = description;
+        this.date = date;
+        this.replies = replies;
+    }
+
+
+
     public boolean addReply(Comment comment){
-        return true;
+        return replies.add(comment);
     }
 
     public User getAuthor() {
