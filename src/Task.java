@@ -16,6 +16,16 @@ public class Task {
     users = new ArrayList<User>();
     comments = new ArrayList<Comment>();
   }
+
+  // constructor called by DataLoader
+  public Task(String taskName, String description, int priority,
+              ArrayList<User> users, ArrayList<Comment> comments) {
+    this.taskName = taskName;
+    this.description = description;
+    this.priority = priority;
+    this.users = users;
+    this.comments = comments;
+  }
   
 
   public User assignUser(User user){
