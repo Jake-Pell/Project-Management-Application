@@ -39,13 +39,26 @@ public class DataLoader extends DataConstants{
 
 		 try{
 		 	FileReader reader = new FileReader(PROJECT_FILE_NAME);
-		 	JSONParser parser = new JSONParser();
 		 	JSONArray projectsJSON = (JSONArray) new JSONParser().parse(reader);
-
 		 	for (int i = 0; i < projectsJSON.size(); ++i) {
 		 		JSONObject projectJSON = (JSONObject)projectsJSON.get(i);
+				// id
+				String id = (String)projectJSON.get(ID);
+
+				// project name
 				String name = (String)projectJSON.get(PROJECT_NAME);
-				
+
+				// users
+				JSONArray usersArray = (JSONArray) projectJSON.get(PROJECT_USERS);
+				ArrayList<User> users = new ArrayList<User>();
+				for (Object user : usersArray) {
+					User nextUser = UserList.getInstance().getUser(user.toString());
+					if (nextUser != null)
+						users.add(nextUser);
+				}
+
+
+				projects.add(new Project(id, name, users, null, null));
 		 	}
 
 		 } catch (Exception e) {

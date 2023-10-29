@@ -64,7 +64,7 @@ public class DataWriter extends DataConstants {
 		}
 
 		// write to file, Changed to filePath to be the real projcets
-		try (FileWriter writer = new FileWriter("json/projects.json")) { 
+		try (FileWriter writer = new FileWriter("json/projectTest.json")) { 
 			writer.write(jsonProjects.toJSONString());
 			writer.flush();
 		} catch (IOException e) {
@@ -92,8 +92,10 @@ public class DataWriter extends DataConstants {
 		JSONArray projectUsers = new JSONArray();
 		ArrayList<User> users = project.getUsers();
 		if (users != null && !users.isEmpty()) {
-			for (User u : users) 
+			for (User u : users) {
+				System.out.println(u);
 				projectUsers.add(u.getID().toString());
+			}
 		}
 		projectDetails.put(PROJECT_USERS, projectUsers);
 
@@ -121,7 +123,7 @@ public class DataWriter extends DataConstants {
 
 	public static JSONObject getColumnJSON(Column column) {
 		JSONObject columnDetails = new JSONObject();
-		columnDetails.put(PROJECT_NAME, column.getName());
+		columnDetails.put(COLUMN_NAME, column.getName());
 
 		JSONArray columnTasks = new JSONArray();
 		ArrayList<Task> tasks = column.getTasks();
@@ -140,7 +142,7 @@ public class DataWriter extends DataConstants {
 		// author, description, date
 		commentDetails.put(COMMENT_AUTHOR, comment.getAuthor().getID().toString());
 		commentDetails.put(COMMENT_DESCRIPTION, comment.getDescription());
-		//commentDetails.put(COMMENT_DATE, comment.getDate().toString()); // need to add date still
+		commentDetails.put(COMMENT_DATE, comment.getDate());
 
 		// replies
 		JSONArray commentReplies = new JSONArray();

@@ -32,6 +32,7 @@ public class Project {
   public Project(String id, String name, ArrayList<User> users,
       ArrayList<Column> columns, ArrayList<Comment> comments) {
     this.id = UUID.fromString(id);
+    this.name = name;
     this.users = users;
     this.columns = columns;
     this.comments = comments;
