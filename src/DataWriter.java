@@ -63,8 +63,8 @@ public class DataWriter extends DataConstants {
 				jsonProjects.add(getProjectJSON(p));
 		}
 
-		// write to file, Changed to filePath to be the real projcets
-		try (FileWriter writer = new FileWriter("json/projectTest.json")) { 
+		// write to file
+		try (FileWriter writer = new FileWriter(PROJECT_FILE_NAME)) { 
 			writer.write(jsonProjects.toJSONString());
 			writer.flush();
 		} catch (IOException e) {
@@ -93,7 +93,6 @@ public class DataWriter extends DataConstants {
 		ArrayList<User> users = project.getUsers();
 		if (users != null && !users.isEmpty()) {
 			for (User u : users) {
-				System.out.println(u);
 				projectUsers.add(u.getID().toString());
 			}
 		}

@@ -65,10 +65,12 @@ public class DataLoader extends DataConstants{
 					columns.add(getColumn(columnJSON));
 				}
 
-				// get 
+				// get comments
+				JSONArray commentsArray = (JSONArray) projectJSON.get(PROJECT_COMMENTS);
+				ArrayList<Comment> comments = getComments(commentsArray);
 
 
-				projects.add(new Project(id, name, users, columns, null));
+				projects.add(new Project(id, name, users, columns, comments));
 		 	}
 
 		 } catch (Exception e) {
@@ -101,15 +103,42 @@ public class DataLoader extends DataConstants{
 
 		// users
 		JSONArray usersArray = (JSONArray) task.get(TASK_USERS);
-			ArrayList<User> users = new ArrayList<User>();
-			for (Object user : usersArray) {
-				User nextUser = UserList.getInstance().getUserByID(user.toString());
-				if (nextUser != null)
-					System.out.println(users.add(nextUser));
-			}
+		ArrayList<User> users = new ArrayList<User>();
+		for (Object user : usersArray) {
+			User nextUser = UserList.getInstance().getUserByID(user.toString());
+			if (nextUser != null)
+				users.add(nextUser);
+		}
+
+		// comments
+		JSONArray commentsArray = (JSONArray) task.get(TASK_COMMENTS);
+		ArrayList<Comment> comments = getComments(commentsArray);
 
 
-		return new Task(name, description, priority, users, null);
+		return new Task(name, description, priority, users, comments);
+	}
+
+	public static ArrayList<Comment> getComments(JSONArray commentsArray) {
+		ArrayList<Comment> comments = new ArrayList<Comment>();
+		for (Object comment : commentsArray) {
+			JSONObject commentObject = (JSONObject) comment;
+
+			// author
+			String authorID = (String) commentObject.get(COMMENT_AUTHOR);
+			User author = UserList.getInstance().getUserByID(authorID.toString());
+
+			// description, date
+			String description = (String) commentObject.get(COMMENT_DESCRIPTION);
+			String date = (String) commentObject.get(COMMENT_DATE);
+
+			// replies
+			JSONArray repliesArray = (JSONArray) commentObject.get(COMMENT_REPLIES);
+			ArrayList<Comment> replies = getComments(repliesArray);
+
+			comments.add(new Comment(author, description, date, replies));
+		}
+
+		return comments;
 	}
 
 
