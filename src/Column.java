@@ -7,6 +7,7 @@ public class Column {
     private ArrayList<Task> tasks;
 
     public Column(String name){
+        
         this.name = name;
         tasks = new ArrayList<Task>();
     }
@@ -16,7 +17,7 @@ public class Column {
         this.name = name;
         this.tasks = tasks;
     }
-
+        // setters
     public String getName(){
         return name;
     }
@@ -46,8 +47,14 @@ public class Column {
             return false;
         }
     }
-
+            /**
+             * 
+             * @param Task
+             * @return t
+             */
     public Task getTask(String name) {
+      
+        
         if (tasks == null || tasks.isEmpty())
             return null;
         for (Task t : tasks) {
