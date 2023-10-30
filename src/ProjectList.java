@@ -6,10 +6,16 @@ public class ProjectList {
 	private static ProjectList projectList;
 
 	private ProjectList() {
+	
+
 		projects = DataLoader.getProjects();
 	}
 
+	/**
+	 * @return projectList
+	 */
 	public static ProjectList getInstance() {
+		/* */
 		if (projectList == null) {
 			projectList = new ProjectList();
 		}
@@ -35,7 +41,13 @@ public class ProjectList {
 		return projects;
 	}
 
+	/**
+	 * @param name
+	 * @return p
+	 * 
+	 */
 	public Project getProject(String name) {
+		/** */
 		if (projects == null || projects.isEmpty())
 			return null;
 		for (Project p : projects) {
