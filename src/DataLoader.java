@@ -5,9 +5,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
+/**
+ * Loads the data from JSON files into UserList and ProjectList
+ */
 public class DataLoader extends DataConstants{
 
+	/**
+	 * Creates a list of Users from the user JSON file
+	 * @return ArrayList<User> containing all the users
+	 */
 	public static ArrayList<User> getUsers() {
 		ArrayList<User> users = new ArrayList<User>();
 		
@@ -34,6 +40,10 @@ public class DataLoader extends DataConstants{
 		return users;
 	}
 
+	/**
+	 * Creates a list of Projects from the project JSON file
+	 * @return ArrayList<Project> containing all the projects
+	 */
 	public static ArrayList<Project> getProjects() {
 		ArrayList<Project> projects = new ArrayList<Project>();
 
@@ -65,10 +75,12 @@ public class DataLoader extends DataConstants{
 					columns.add(getColumn(columnJSON));
 				}
 
-				// get 
+				// get comments
+				JSONArray commentsArray = (JSONArray) projectJSON.get(PROJECT_COMMENTS);
+				ArrayList<Comment> comments = getComments(commentsArray);
 
 
-				projects.add(new Project(id, name, users, columns, null));
+				projects.add(new Project(id, name, users, columns, comments));
 		 	}
 
 		 } catch (Exception e) {
@@ -77,6 +89,11 @@ public class DataLoader extends DataConstants{
 		return projects;
 	}
 
+	/**
+	 * Converts a JSONObject to a Column
+	 * @param column a JSONObject representing a column
+	 * @return A Column object with the data from the JSONObject
+	 */
 	public static Column getColumn(JSONObject column) {
 		// column name
 		String name = (String) column.get(COLUMN_NAME);
@@ -93,6 +110,11 @@ public class DataLoader extends DataConstants{
 		return new Column(name, tasks);
 	}
 
+	/**
+	 * Converts a JSONObject to a Task
+	 * @param column a JSONObject representing a task
+	 * @return A Task object with the data from the JSONObject
+	 */
 	public static Task getTask(JSONObject task) {
 		// name, description, priority
 		String name = (String) task.get(TASK_NAME);
@@ -101,15 +123,47 @@ public class DataLoader extends DataConstants{
 
 		// users
 		JSONArray usersArray = (JSONArray) task.get(TASK_USERS);
-			ArrayList<User> users = new ArrayList<User>();
-			for (Object user : usersArray) {
-				User nextUser = UserList.getInstance().getUserByID(user.toString());
-				if (nextUser != null)
-					System.out.println(users.add(nextUser));
-			}
+		ArrayList<User> users = new ArrayList<User>();
+		for (Object user : usersArray) {
+			User nextUser = UserList.getInstance().getUserByID(user.toString());
+			if (nextUser != null)
+				users.add(nextUser);
+		}
+
+		// comments
+		JSONArray commentsArray = (JSONArray) task.get(TASK_COMMENTS);
+		ArrayList<Comment> comments = getComments(commentsArray);
 
 
-		return new Task(name, description, priority, users, null);
+		return new Task(name, description, priority, users, comments);
+	}
+
+	/**
+	 * Converts a JSONArray to an ArrayList of Tasks
+	 * @param column a JSONArray containing a list that represents Comments
+	 * @return ArrayList<Comment> with the data from the JSONArray
+	 */
+	public static ArrayList<Comment> getComments(JSONArray commentsArray) {
+		ArrayList<Comment> comments = new ArrayList<Comment>();
+		for (Object comment : commentsArray) {
+			JSONObject commentObject = (JSONObject) comment;
+
+			// author
+			String authorID = (String) commentObject.get(COMMENT_AUTHOR);
+			User author = UserList.getInstance().getUserByID(authorID.toString());
+
+			// description, date
+			String description = (String) commentObject.get(COMMENT_DESCRIPTION);
+			String date = (String) commentObject.get(COMMENT_DATE);
+
+			// replies
+			JSONArray repliesArray = (JSONArray) commentObject.get(COMMENT_REPLIES);
+			ArrayList<Comment> replies = getComments(repliesArray);
+
+			comments.add(new Comment(author, description, date, replies));
+		}
+
+		return comments;
 	}
 
 

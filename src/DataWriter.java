@@ -4,6 +4,9 @@ import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Writes all the data from UserList and ProjectList into JSON files
+ */
 public class DataWriter extends DataConstants {
 
 	/**
@@ -63,8 +66,8 @@ public class DataWriter extends DataConstants {
 				jsonProjects.add(getProjectJSON(p));
 		}
 
-		// write to file, Changed to filePath to be the real projcets
-		try (FileWriter writer = new FileWriter("json/projectTest.json")) { 
+		// write to file
+		try (FileWriter writer = new FileWriter(PROJECT_FILE_NAME)) { 
 			writer.write(jsonProjects.toJSONString());
 			writer.flush();
 		} catch (IOException e) {
@@ -93,7 +96,6 @@ public class DataWriter extends DataConstants {
 		ArrayList<User> users = project.getUsers();
 		if (users != null && !users.isEmpty()) {
 			for (User u : users) {
-				System.out.println(u);
 				projectUsers.add(u.getID().toString());
 			}
 		}
@@ -121,6 +123,12 @@ public class DataWriter extends DataConstants {
 
 	}
 
+	/** 
+	 * Takes a Column and converts it to a JSONObject
+	 * Called by getProjectJSON
+	 * @param Column a column object to be made into a JSONObject
+	 * @return JSONObject that represents a column's data
+	 */
 	public static JSONObject getColumnJSON(Column column) {
 		JSONObject columnDetails = new JSONObject();
 		columnDetails.put(COLUMN_NAME, column.getName());
@@ -136,6 +144,13 @@ public class DataWriter extends DataConstants {
 		return columnDetails;
 	}
 
+	/** 
+	 * Takes a Comment and converts it to a JSONObject
+	 * Called by getProjectJSON and getTaskJSON
+	 * Recursivley adds replies to the return value
+	 * @param Comment a comment object to be made into a JSONObject
+	 * @return JSONObject that represents a comment's data
+	 */
 	public static JSONObject getCommentJSON(Comment comment) {
 		JSONObject commentDetails = new JSONObject();
 
@@ -157,6 +172,12 @@ public class DataWriter extends DataConstants {
 		return commentDetails;
 	}
 
+	/**
+	 * Takes a Task and converts it to a JSONObject
+	 * Called by getColumnJSON
+	 * @param Column a task object to be made into a JSONObject
+	 * @return JSONObject that represents a tasks's data
+	 */
 	public static JSONObject getTaskJSON(Task task) {
 		JSONObject taskDetails = new JSONObject();
 
