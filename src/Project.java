@@ -10,7 +10,11 @@ public class Project {
   private ArrayList<User> users;
   private ArrayList<Column> columns;
   private ArrayList<Comment> comments;
-
+/**
+ * 
+ * @param name
+ * @param user
+ */
   public Project(String name, User user) {
     id = UUID.randomUUID();
     this.name = name;
@@ -28,6 +32,14 @@ public class Project {
 
   }
 
+  /**
+   * 
+   * @param id
+   * @param name
+   * @param users
+   * @param columns
+   * @param comments
+   */
   // constructor called by DataLoader
   public Project(String id, String name, ArrayList<User> users,
       ArrayList<Column> columns, ArrayList<Comment> comments) {
@@ -38,6 +50,13 @@ public class Project {
     this.comments = comments;
   }
 
+/**
+ * 
+ * @param newName
+ * @return {@code true} if the name is set successfully; {@code false} if the provided 
+ *         name is an empty string and, therefore, not set.
+
+ */
   public boolean setName(String newName) {
     if (!newName.isEmpty()) {
       this.name = newName;
@@ -49,9 +68,20 @@ public class Project {
   }
 
   // Column related methods
+  /**
+   * 
+   * @param columnName
+   * @return columns.add(new Column(columnName))
+   */
   public boolean addColumn(String columnName) {
     return columns.add(new Column(columnName));
   }
+/**
+ * 
+ * @param column
+ * @param endIndex
+ * @return swapColumn(column, start, endIndex)
+ */
 
   public boolean moveColumn(Column column, int endIndex) {
 
@@ -59,6 +89,13 @@ public class Project {
     return swapColumn(column, start, endIndex);
 
   }
+  /**
+   * 
+   * @param column
+   * @param start
+   * @param end
+   * @return true
+   */
 
   private boolean swapColumn(Column column, int start, int end) {
     Column temp = column;
@@ -68,22 +105,41 @@ public class Project {
   }
 
   // User related methods
+  /**
+   * 
+   * @param user
+   * @return true if the user was successfully added, false otherwise.
+   */
   public boolean containUser(User user) {
     if (users.contains(user)) {
       return true;
     }
     return false;
   }
-
+/**
+ * 
+ * @param user
+ * @return {@}
+ */
   public boolean addUser(User user) {
     return users.add(user);
   }
+  /**
+   * 
+   * @param user
+   * @param description
+   * @return comments.add(commment)
+   */
 
   public boolean addComment(User user, String description) {
     Comment comment = new Comment(user, description);
     return comments.add(comment);
   }
-
+/**
+ * 
+ * @param column
+ * @return comments.add(commment)
+ */
   public boolean addColumn(Column column) {
     return columns.add(column);
   }
@@ -107,7 +163,11 @@ public class Project {
   public ArrayList<Comment> getComments() {
     return comments;
   }
-
+/**
+ * 
+ * @param name
+ * @return {@code null}
+ */
   public Column getColumn(String name) {
     if (columns == null || columns.isEmpty())
       return null;
@@ -119,7 +179,12 @@ public class Project {
   }
 
   // Task related classes
-
+/**
+ * 
+ * @param task     The task to be moved.
+ * @param endIndex he index representing the new position in the list of columns.
+ * @return {@code flase} if the task cannot be moved, typically due to an invalid endIndex.
+ */
   public boolean moveTask(Task task, int endIndex) {
 
     // int start = columns.indexOf(currCol);
@@ -138,11 +203,39 @@ public class Project {
     return swapTask(task, start, endIndex);
 
   }
-
+/**
+ * 
+ * @param task
+ * @param start
+ * @param end
+ * @return {@code true} when task has been stawped 
+ */
   private boolean swapTask(Task task, int start, int end) {
     columns.get(start).removeTask(task);
     columns.get(end).addTask(task);
     return true;
+  }
+
+  public String toString() {
+    // name
+    String projectString = "Project: " + name + "\n\nAssigned Users: \n";
+
+    // users
+    for (User u : users)
+      projectString += u.toString() + "\n";
+    projectString += "\n---------------------------------\n";
+
+    // columns
+    projectString += "\nColumns: \n\n";
+    for (Column c : columns)
+      projectString += c.toString() + "\n";
+    projectString += "---------------------------------\n";
+
+    // comments
+    projectString += "\nProject Comments:\n";
+    for (Comment c : comments)
+      projectString += c.toString() + "\n";
+    return projectString;
   }
 
 }
