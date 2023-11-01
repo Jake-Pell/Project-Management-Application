@@ -106,7 +106,7 @@ public class Task {
       ret += u.toString() + "\n";
     }
     ret += "Description: " + description;
-    ret += "\nTask Comments: \n";
+    ret += "\n\nTask Comments: \n";
     for (Comment c : comments) {
       ret += c.toString() + "\n";
     }

@@ -102,7 +102,11 @@ public class Comment {
     }
 
     public String toString() {
-        String ret =  author + " " + date + "\n" + description;
+        String ret =  author + " " + date + "\n   -" + description + "\n";
+        if (!replies.isEmpty()) {
+            for (Comment r : replies)
+                ret += "Reply: " + r.toString();
+        }
         return ret;
     }
 }

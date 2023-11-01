@@ -13,6 +13,7 @@ public class UI {
         //app.createTask("TASK NAME", "THIS IS A DESCRIPTION OF MY TASK", 1);
         app.setCurrentTask("TASK NAME");
         //app.addTaskComment("comment for this task");
+        //app.addProjectComment("This is a comment for the project");
         app.printCurrentProject();
         app.logout();
     }

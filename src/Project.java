@@ -217,15 +217,24 @@ public class Project {
   }
 
   public String toString() {
-    String projectString = "Project: " + name + "\nAssigned Users: ";
-    for (User u : users) {
+    // name
+    String projectString = "Project: " + name + "\n\nAssigned Users: \n";
+
+    // users
+    for (User u : users)
       projectString += u.toString() + "\n";
-    }
+    projectString += "\n---------------------------------\n";
+
+    // columns
     projectString += "\nColumns: \n\n";
-    for (Column c : columns) {
+    for (Column c : columns)
       projectString += c.toString() + "\n";
-    }
-    System.out.print(projectString);
+    projectString += "---------------------------------\n";
+
+    // comments
+    projectString += "\nProject Comments:\n";
+    for (Comment c : comments)
+      projectString += c.toString() + "\n";
     return projectString;
   }
 

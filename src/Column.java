@@ -128,7 +128,7 @@ public class Column {
     }
 
     public String toString() {
-        String ret = name + "\n";
+        String ret = name + ":\n";
         for (Task t : tasks) {
             ret += "\n" + t.toString() + "\n";
         }
