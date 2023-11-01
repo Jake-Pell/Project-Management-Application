@@ -8,6 +8,7 @@ public class ProjectApplication {
     private ProjectList projectList;
     private Task currentTask;
     private Column currentColumn;
+    private Comment currentComment;
 
     public ProjectApplication() {
         userList = UserList.getInstance();
