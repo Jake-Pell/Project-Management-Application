@@ -5,7 +5,10 @@ public class Column {
     
     private String name;
     private ArrayList<Task> tasks;
-
+/***
+ * 
+ * @param name
+ */
     public Column(String name){
         
         this.name = name;
@@ -13,27 +16,53 @@ public class Column {
     }
 
     // constructor called by DataLoader
+    /**
+     * 
+     * @param name
+     * @param tasks
+     */
     public Column(String name, ArrayList<Task> tasks) {
         this.name = name;
         this.tasks = tasks;
     }
         // setters
+        /**
+         * 
+         * @return  name
+         */
     public String getName(){
         return name;
     }
-
+/**
+ * 
+ * @return tasks
+ */
     public ArrayList<Task> getTasks(){
         return tasks;
     }
-
+/**
+ * 
+ * @param name
+ * @param description
+ * @param priority
+ * @return task.add it makes a new task with the description and the priority
+ */
     public boolean addTask(String name, String description, int priority){
         return tasks.add(new Task(name, description, priority));
     }
-
+/**
+ * 
+ * @param task
+ * @return task.add adds task
+ */
     public boolean addTask(Task task){
         return tasks.add(task);
     }
-
+/**
+ * 
+ * @param task
+ * @return task 
+ */
     public Task removeTask(Task task){
         tasks.remove(task);
         return task;
