@@ -61,11 +61,16 @@ public class ProjectApplication {
         projectList.saveProjects();
     }
 
-    public boolean printCurrentProject() {
+    public String currentProjectToString() {
+        if (currentProject == null)
+            return null;
+        return currentProject.toString();
+    }
+
+    public boolean writeProjectToFile(String fileName) {
         if (currentProject == null)
             return false;
-        System.out.println(currentProject);
-        return true;
+        return currentProject.writeToFile(fileName);
     }
 
 
@@ -184,6 +189,8 @@ public class ProjectApplication {
         return newUser;
     }
     // ---End of Task---
+
+    // Reply methods
 
     // Private helper methods
     // returns true if it's null

@@ -1,6 +1,8 @@
 // Copyright 2023 Cocky 4
 
 import java.util.UUID;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Project {
@@ -214,6 +216,17 @@ public class Project {
     columns.get(start).removeTask(task);
     columns.get(end).addTask(task);
     return true;
+  }
+
+  public boolean writeToFile(String fileName) {
+    try (FileWriter writer = new FileWriter(fileName)) { 
+			writer.write(toString());
+			writer.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
   }
 
   public String toString() {
