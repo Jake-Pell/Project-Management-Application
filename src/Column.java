@@ -126,4 +126,13 @@ public class Column {
     public boolean hasTask(Task task) {
         return tasks.contains(task);
     }
+
+    public String toString() {
+        String ret = name + ":\n";
+        for (Task t : tasks) {
+            ret += "\n" + t.toString() + "\n";
+        }
+        return ret;
+    }
 }
+

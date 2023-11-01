@@ -100,4 +100,13 @@ public class Comment {
     public ArrayList<Comment> getReplies() {
         return replies;
     }
+
+    public String toString() {
+        String ret =  author + " " + date + "\n   -" + description + "\n";
+        if (!replies.isEmpty()) {
+            for (Comment r : replies)
+                ret += "Reply: " + r.toString();
+        }
+        return ret;
+    }
 }

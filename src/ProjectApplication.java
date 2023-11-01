@@ -8,6 +8,7 @@ public class ProjectApplication {
     private ProjectList projectList;
     private Task currentTask;
     private Column currentColumn;
+    private Comment currentComment;
 
     public ProjectApplication() {
         userList = UserList.getInstance();
@@ -58,6 +59,13 @@ public class ProjectApplication {
 
     public void saveProjects() {
         projectList.saveProjects();
+    }
+
+    public boolean printCurrentProject() {
+        if (currentProject == null)
+            return false;
+        System.out.println(currentProject);
+        return true;
     }
 
 

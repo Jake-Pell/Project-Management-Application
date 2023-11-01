@@ -132,7 +132,6 @@ public class DataWriter extends DataConstants {
 	public static JSONObject getColumnJSON(Column column) {
 		JSONObject columnDetails = new JSONObject();
 		columnDetails.put(COLUMN_NAME, column.getName());
-
 		JSONArray columnTasks = new JSONArray();
 		ArrayList<Task> tasks = column.getTasks();
 		if (tasks != null && !tasks.isEmpty()) {
@@ -175,7 +174,7 @@ public class DataWriter extends DataConstants {
 	/**
 	 * Takes a Task and converts it to a JSONObject
 	 * Called by getColumnJSON
-	 * @param Column a task object to be made into a JSONObject
+	 * @param Task a task object to be made into a JSONObject
 	 * @return JSONObject that represents a tasks's data
 	 */
 	public static JSONObject getTaskJSON(Task task) {
@@ -202,7 +201,6 @@ public class DataWriter extends DataConstants {
 				taskComments.add(getCommentJSON(c));
 		}
 		taskDetails.put(PROJECT_COMMENTS, taskComments);
-
 
 		return taskDetails;
 	}

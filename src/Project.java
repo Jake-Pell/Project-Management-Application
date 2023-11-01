@@ -216,4 +216,26 @@ public class Project {
     return true;
   }
 
+  public String toString() {
+    // name
+    String projectString = "Project: " + name + "\n\nAssigned Users: \n";
+
+    // users
+    for (User u : users)
+      projectString += u.toString() + "\n";
+    projectString += "\n---------------------------------\n";
+
+    // columns
+    projectString += "\nColumns: \n\n";
+    for (Column c : columns)
+      projectString += c.toString() + "\n";
+    projectString += "---------------------------------\n";
+
+    // comments
+    projectString += "\nProject Comments:\n";
+    for (Comment c : comments)
+      projectString += c.toString() + "\n";
+    return projectString;
+  }
+
 }
