@@ -71,4 +71,12 @@ public class Column {
         return false;
     }
 
+    public String toString() {
+        String ret = name + "\n";
+        for (Task t : tasks) {
+            ret += "\n" + t.toString() + "\n";
+        }
+        return ret;
+    }
+
 }

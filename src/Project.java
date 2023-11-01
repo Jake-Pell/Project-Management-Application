@@ -145,4 +145,17 @@ public class Project {
     return true;
   }
 
+  public String toString() {
+    String projectString = "Project: " + name + "\nAssigned Users: ";
+    for (User u : users) {
+      projectString += u.toString() + "\n";
+    }
+    projectString += "\nColumns: \n\n";
+    for (Column c : columns) {
+      projectString += c.toString() + "\n";
+    }
+    System.out.print(projectString);
+    return projectString;
+  }
+
 }

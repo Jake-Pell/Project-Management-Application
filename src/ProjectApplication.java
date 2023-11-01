@@ -60,6 +60,13 @@ public class ProjectApplication {
         projectList.saveProjects();
     }
 
+    public boolean printCurrentProject() {
+        if (currentProject == null)
+            return false;
+        System.out.println(currentProject);
+        return true;
+    }
+
 
     // Returns projects that currentUser is inside
     public ArrayList<Project> getUserProjects() {

@@ -100,6 +100,19 @@ public class Task {
     return comments;
   }
 
+  public String toString() {
+    String ret = taskName + " (Priority: " + priority + ")\n" + "Assigned Users: \n";
+    for (User u : users) {
+      ret += u.toString() + "\n";
+    }
+    ret += "Description: " + description;
+    ret += "\nTask Comments: \n";
+    for (Comment c : comments) {
+      ret += c.toString() + "\n";
+    }
+    return ret;
+  }
+
   
   
 }

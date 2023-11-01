@@ -56,4 +56,9 @@ public class Comment {
     public ArrayList<Comment> getReplies() {
         return replies;
     }
+
+    public String toString() {
+        String ret =  author + " " + date + "\n" + description;
+        return ret;
+    }
 }
