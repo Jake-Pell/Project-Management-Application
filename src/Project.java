@@ -166,7 +166,7 @@ public class Project {
 /**
  * 
  * @param name
- * @return null
+ * @return {@code null}
  */
   public Column getColumn(String name) {
     if (columns == null || columns.isEmpty())
@@ -181,9 +181,9 @@ public class Project {
   // Task related classes
 /**
  * 
- * @param task
- * @param endIndex
- * @return flase/ true
+ * @param task     The task to be moved.
+ * @param endIndex he index representing the new position in the list of columns.
+ * @return {@code flase} if the task cannot be moved, typically due to an invalid endIndex.
  */
   public boolean moveTask(Task task, int endIndex) {
 
@@ -208,7 +208,7 @@ public class Project {
  * @param task
  * @param start
  * @param end
- * @return true
+ * @return {@code true} when task has been stawped 
  */
   private boolean swapTask(Task task, int start, int end) {
     columns.get(start).removeTask(task);

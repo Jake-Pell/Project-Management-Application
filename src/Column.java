@@ -1,107 +1,129 @@
-// Copyright 2023 Cocky 4
-
 import java.util.ArrayList;
+
+/**
+ * Represents a column containing tasks.
+ *
+ * @author Cocky 4
+ * @since 2023
+ */
 public class Column {
-    
+
     private String name;
     private ArrayList<Task> tasks;
-/***
- * 
- * @param name
- */
-    public Column(String name){
-        
+
+    /**
+     * Constructs a column with a given name.
+     *
+     * @param name The name of the column.
+     */
+    public Column(String name) {
         this.name = name;
         tasks = new ArrayList<Task>();
     }
 
-    // constructor called by DataLoader
+    // Constructor called by DataLoader
     /**
-     * 
-     * @param name
-     * @param tasks
+     * Constructs a column with a given name and existing tasks.
+     *
+     * @param name  The name of the column.
+     * @param tasks The existing tasks to be added to the column.
      */
     public Column(String name, ArrayList<Task> tasks) {
         this.name = name;
         this.tasks = tasks;
     }
-        // setters
-        /**
-         * 
-         * @return  name
-         */
-    public String getName(){
+
+    /**
+     * Retrieves the name of the column.
+     *
+     * @return The name of the column.
+     */
+    public String getName() {
         return name;
     }
-/**
- * 
- * @return tasks
- */
-    public ArrayList<Task> getTasks(){
+
+    /**
+     * Retrieves the tasks in the column.
+     *
+     * @return The list of tasks in the column.
+     */
+    public ArrayList<Task> getTasks() {
         return tasks;
     }
-/**
- * 
- * @param name
- * @param description
- * @param priority
- * @return task.add it makes a new task with the description and the priority
- */
-    public boolean addTask(String name, String description, int priority){
+
+    /**
+     * Adds a new task to the column.
+     *
+     * @param name        The name of the task.
+     * @param description The description of the task.
+     * @param priority    The priority of the task.
+     * @return True if the task was added successfully.
+     */
+    public boolean addTask(String name, String description, int priority) {
         return tasks.add(new Task(name, description, priority));
     }
-/**
- * 
- * @param task
- * @return task.add adds task
- */
-    public boolean addTask(Task task){
+
+    /**
+     * Adds an existing task to the column.
+     *
+     * @param task The task to be added.
+     * @return True if the task was added successfully.
+     */
+    public boolean addTask(Task task) {
         return tasks.add(task);
     }
-/**
- * 
- * @param task
- * @return task 
- */
-    public Task removeTask(Task task){
+
+    /**
+     * Removes a specified task from the column.
+     *
+     * @param task The task to be removed.
+     * @return The task that was removed.
+     */
+    public Task removeTask(Task task) {
         tasks.remove(task);
         return task;
     }
 
+    /**
+     * Sets the name of the column.
+     *
+     * @param name The new name for the column.
+     * @return True if the name was set successfully.
+     */
     public boolean setName(String name) {
-        if (!name.isEmpty()){
+        if (!name.isEmpty()) {
             this.name = name;
             return true;
         } else {
             return false;
         }
     }
-            /**
-             * 
-             * @param Task
-             * @return t
-             */
+
+    /**
+     * Retrieves a task by its name.
+     *
+     * @param name The name of the task to retrieve.
+     * @return The task with the specified name, or null if not found.
+     */
     public Task getTask(String name) {
-      
-        /**
-         * 
-         *  @
-         * 
-         */
-        if (tasks == null || tasks.isEmpty())
+        if (tasks == null || tasks.isEmpty()) {
             return null;
+        }
         for (Task t : tasks) {
-            if (t.getName().equals(name))
+            if (t.getName().equals(name)) {
                 return t;
+            }
         }
         return null;
     }
 
-    public boolean hasTask(Task task){
-        if(tasks.contains(task)){
-            return true;
-        }
-        return false;
+    /**
+     * Checks if the column contains a specific task.
+     *
+     * @param task The task to check for.
+     * @return True if the task is present in the column.
+     */
+    public boolean hasTask(Task task) {
+        return tasks.contains(task);
     }
-
 }
