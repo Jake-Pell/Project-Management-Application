@@ -1,7 +1,7 @@
-Project: TESTING
+Project: Electric Missiles
 
 Assigned Users: 
-Robbie White (rwhite@gmail.com)
+Atticus Madden (atticusM123)
 
 ---------------------------------
 
@@ -11,25 +11,46 @@ Backlog:
 
 To Do:
 
-In Progress:
-
-TASK NAME (Priority: 1)
+Initialize super algorithm to detonate at warp speed. (Priority: 1)
 Assigned Users: 
-Description: THIS IS A DESCRIPTION OF MY TASK
+Jeff Goldblum (jgb721)
+Description: 
 
 Task Comments: 
-Jed Wilson (jwilson@gmail.com) 2023/10/31 14:48:12
-   -comment for this task
-    Reply: Jed Wilson (jwilson@gmail.com) 2023/11/01 17:21:08
-   -This is a reply to this comment
+Atticus Madden (atticusM123) 2023/11/01 18:45:04
+   -Avoid civilians Jeff!
+
+
+
+Doing:
+
+Curve the metal to make a cylindrical shape (Priority: 3)
+Assigned Users: 
+Jeff Goldblum (jgb721)
+Description: Curve it!
+
+Task Comments: 
+Jeff Goldblum (jgb721) 2023/11/01 18:15:29
+   -Not cylindrical enough
+    Reply: Atticus Madden (atticusM123) 2023/11/01 18:45:04
+   -How about you do it Jeff
+
+Atticus Finch (attyF) 2023/11/01 18:18:56
+   -What's a cylinder?
 
 
 
 Completed:
 
+Abandoned:
+
+Make impossible burger possible (Priority: 1)
+Assigned Users: 
+Description: It is of the utmost importance
+
+Task Comments: 
+
+
 ---------------------------------
 
 Project Comments:
-Jed Wilson (jwilson@gmail.com) 2023/11/01 02:32:17
-   -This is a comment for the project
-

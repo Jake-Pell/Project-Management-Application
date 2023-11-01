@@ -182,11 +182,11 @@ public class ProjectApplication {
         return setCurrentTask(name);
     }
 
-    public User addUserToTask(String username){
+    public boolean addUserToTask(String username){
         User newUser = userList.getUser(username);
         if (currentTask != null && newUser != null)
-            currentTask.assignUser(newUser);
-        return newUser;
+            return currentTask.assignUser(newUser);
+        return false;
     }
     // ---End of Task---
 

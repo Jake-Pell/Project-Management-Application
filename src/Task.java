@@ -28,9 +28,8 @@ public class Task {
   }
   
 
-  public User assignUser(User user){
-    users.add(user);
-    return user;
+  public boolean assignUser(User user){
+    return users.add(user);
   }
 
   public User removeUser(User user){
@@ -107,7 +106,7 @@ public class Task {
     }
     return null;
   }
-  
+
   public String toString() {
     String ret = taskName + " (Priority: " + priority + ")\n" + "Assigned Users: \n";
     for (User u : users) {
