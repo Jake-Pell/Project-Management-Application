@@ -100,6 +100,14 @@ public class Task {
     return comments;
   }
 
+  public Comment getComment(String author, String description) {
+    for (Comment c : comments) {
+      if (c.getAuthor().getUsername().equals(author) && c.getDescription().equals(description))
+        return c;
+    }
+    return null;
+  }
+  
   public String toString() {
     String ret = taskName + " (Priority: " + priority + ")\n" + "Assigned Users: \n";
     for (User u : users) {

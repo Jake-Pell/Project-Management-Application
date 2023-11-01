@@ -229,6 +229,21 @@ public class Project {
 		return true;
   }
 
+  public Comment getComment(String author, String description) {
+    for (Comment c : comments) {
+      if (c.getAuthor().getUsername().equals(author) && c.getDescription().equals(description))
+        return c;
+    }
+    for (Column c : columns) {
+      for (Task t : c.getTasks()) {
+        Comment comment = t.getComment(author, description);
+        if (comment != null)
+          return comment;
+      }
+    }
+    return null;
+  }
+
   public String toString() {
     // name
     String projectString = "Project: " + name + "\n\nAssigned Users: \n";

@@ -50,8 +50,8 @@ public class Comment {
      * @param comment The reply to be added.
      * @return True if the reply was added successfully.
      */
-    public boolean addReply(Comment comment) {
-        return replies.add(comment);
+    public boolean addReply(User author, String description) {
+        return replies.add(new Comment(author, description));
     }
 
     /**
@@ -105,7 +105,7 @@ public class Comment {
         String ret =  author + " " + date + "\n   -" + description + "\n";
         if (!replies.isEmpty()) {
             for (Comment r : replies)
-                ret += "Reply: " + r.toString();
+                ret += "    Reply: " + r.toString();
         }
         return ret;
     }

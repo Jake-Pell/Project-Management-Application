@@ -14,6 +14,8 @@ public class UI {
         app.setCurrentTask("TASK NAME");
         //app.addTaskComment("comment for this task");
         //app.addProjectComment("This is a comment for the project");
+        System.out.println(app.setCurrentComment("jwilson@gmail.com", "comment for this task"));
+        //app.addReply("This is a reply to this comment");
         app.writeProjectToFile("Project.txt");
         app.logout();
     }

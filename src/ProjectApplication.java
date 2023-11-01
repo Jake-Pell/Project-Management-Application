@@ -171,10 +171,10 @@ public class ProjectApplication {
     }
 
     public boolean setCurrentTask(String name) {
-        if (!ifNull(currentColumn)) {
-            currentTask = currentColumn.getTask(name);
-        }
-        return false;
+        if (currentColumn == null) 
+            return false;
+        currentTask = currentColumn.getTask(name);
+        return currentTask != null;
     }
 
     public boolean addTask(String name, String description, int priority){
@@ -191,6 +191,18 @@ public class ProjectApplication {
     // ---End of Task---
 
     // Reply methods
+    public boolean setCurrentComment(String author, String description) {
+        if (currentProject == null)
+            return false;
+        currentComment = currentProject.getComment(author, description);
+        return currentComment != null;
+    }
+
+    public boolean addReply(String description) {
+        if (currentComment == null || currentUser == null)
+            return false;
+        return currentComment.addReply(currentUser, description);
+    }
 
     // Private helper methods
     // returns true if it's null
