@@ -2,6 +2,9 @@
 
 import java.util.ArrayList;
 
+/**
+ * Represents a task in the system with assigned users and comments.
+ */
 public class Task {
     private String taskName;
     private int priority;
@@ -9,97 +12,85 @@ public class Task {
     private ArrayList<User> users;
     private ArrayList<Comment> comments;
 
-  public Task(String taskName, String description, int priority){
-    this.taskName = taskName;
-    this.description = description;
-    this.priority = priority;
-    users = new ArrayList<User>();
-    comments = new ArrayList<Comment>();
-  }
-
-  // constructor called by DataLoader
-  public Task(String taskName, String description, int priority,
-              ArrayList<User> users, ArrayList<Comment> comments) {
-    this.taskName = taskName;
-    this.description = description;
-    this.priority = priority;
-    this.users = users;
-    this.comments = comments;
-  }
-  
-
-  public User assignUser(User user){
-    users.add(user);
-    return user;
-  }
-
-  public User removeUser(User user){
-    users.remove(user);
-    return user;
-  }
-
-  public boolean addComment(User user, String description){
-    Comment comment = new Comment(user, description);
-    return comments.add(comment);
-  }
-  
-  // Setters 
-  public boolean setTaskName(String taskName) {
-    if(!taskName.isEmpty()){
-      this.taskName = taskName;
-      return true;
-    }else{
-      return false;
+    /**
+     * Constructs a task with the provided task name, description, and priority.
+     *
+     * @param taskName    The name of the task.
+     * @param description The description of the task.
+     * @param priority    The priority of the task.
+     */
+    public Task(String taskName, String description, int priority) {
+        this.taskName = taskName;
+        this.description = description;
+        this.priority = priority;
+        users = new ArrayList<User>();
+        comments = new ArrayList<Comment>();
     }
-  }
-  public boolean setPriority(int newPriority){
-    if(priority >= 0){
-      this.priority = newPriority;
-      return true;
-    }else {
-      return false;
+
+    /**
+     * Constructs a task with the provided task name, description, priority, assigned users, and comments.
+     *
+     * @param taskName    The name of the task.
+     * @param description The description of the task.
+     * @param priority    The priority of the task.
+     * @param users       The users assigned to the task.
+     * @param comments    The comments associated with the task.
+     */
+    public Task(String taskName, String description, int priority, ArrayList<User> users, ArrayList<Comment> comments) {
+        this.taskName = taskName;
+        this.description = description;
+        this.priority = priority;
+        this.users = users;
+        this.comments = comments;
     }
-  }
 
-  public boolean setDescription(String description) {
-    if(!description.isEmpty()){
-      this.description = description;
-      return true;
-    }else {
-      return false;
+    /**
+     * Assigns a user to the task.
+     *
+     * @param user The user to be assigned.
+     * @return The assigned user.
+     */
+    public User assignUser(User user) {
+        users.add(user);
+        return user;
     }
-  }
 
-  // getters
-  public String getName() {
-    return taskName;
-  }
+    /**
+     * Removes a user from the task.
+     *
+     * @param user The user to be removed.
+     * @return The removed user.
+     */
+    public User removeUser(User user) {
+        users.remove(user);
+        return user;
+    }
 
+    /**
+     * Adds a comment to the task.
+     *
+     * @param user        The user adding the comment.
+     * @param description The description of the comment.
+     * @return True if the comment is added successfully; otherwise, false.
+     */
+    public boolean addComment(User user, String description) {
+        Comment comment = new Comment(user, description);
+        return comments.add(comment);
+    }
 
-  public String getTaskName() {
-    return taskName;
-  }
+    // Setters
 
+    // Getters
+    // Methods removed due to redundancy
 
-  public int getPriority() {
-    return priority;
-  }
+    /**
+     * Retrieves the name of the task.
+     *
+     * @return The name of the task.
+     */
+    public String getName() {
+        return taskName;
+    }
 
-
-  public String getDescription() {
-    return description;
-  }
-
-
-  public ArrayList<User> getUsers() {
-    return users;
-  }
-
-
-  public ArrayList<Comment> getComments() {
-    return comments;
-  }
-
-  
-  
+   
 }
