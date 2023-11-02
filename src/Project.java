@@ -95,13 +95,14 @@ public boolean addColumn(String columnName) {
     return swapColumn(column, start, endIndex);
 
   }
-  /**
-   * 
-   * @param column
-   * @param start
-   * @param end
-   * @return true
-   */
+ /**
+ * Swaps the position of a column within the project's column list.
+ *
+ * @param column The column to be repositioned.
+ * @param start  The starting index of the column.
+ * @param end    The ending index where the column will be moved.
+ * @return {@code true} indicating successful repositioning of the column within the list.
+ */
 
   private boolean swapColumn(Column column, int start, int end) {
     Column temp = column;
@@ -125,7 +126,7 @@ public boolean addColumn(String columnName) {
 /**
  * 
  * @param user
- * @return {@}
+ * @return adds a user to project
  */
   public boolean addUser(User user) {
     return users.add(user);
@@ -157,22 +158,38 @@ public boolean addColumn(String columnName) {
   public UUID getID() {
     return id;
   }
-
+/**
+ * Retrieves the list of Users associated with the project.
+ *
+ * @return An ArrayList containing the Users linked to this project. 
+ *         This list may be empty if no Users are present.
+ */
   public ArrayList<User> getUsers() {
     return users;
   }
-
+/**
+ * Retrieves the list of Columns associated with the project.
+ *
+ * @return An ArrayList containing the Columns linked to this project. 
+ *         This list may be empty if no Columns are present.
+ */
   public ArrayList<Column> getColumns() {
     return columns;
   }
-
+/**
+ * Retrieves the list of comments associated with the project.
+ *
+ * @return An ArrayList containing the comments linked to this project. 
+ *         This list may be empty if no comments are present.
+ */
   public ArrayList<Comment> getComments() {
     return comments;
   }
 /**
- * 
- * @param name
- * @return {@code null}
+ * Retrieves a column by its name within the project.
+ *
+ * @param name The name of the column to retrieve.
+ * @return The column object with the specified name if found, otherwise returns {@code null}.
  */
   public Column getColumn(String name) {
     if (columns == null || columns.isEmpty())
@@ -232,7 +249,13 @@ public boolean addColumn(String columnName) {
 		}
 		return true;
   }
-
+/**
+ * Retrieves a comment by matching the author and description within the project or its tasks.
+ *
+ * @param author       The username of the author of the comment.
+ * @param description  The content or description of the comment.
+ * @return The comment matching the provided author and description, or {@code null} if not found.
+ */
   public Comment getComment(String author, String description) {
     for (Comment c : comments) {
       if (c.getAuthor().getUsername().equals(author) && c.getDescription().equals(description))
@@ -247,7 +270,14 @@ public boolean addColumn(String columnName) {
     }
     return null;
   }
-
+/**
+ /**
+ * Generates a string representation of the project comments.
+ * The string includes a section header for project comments and appends each comment's string representation.
+ *
+ * @return A string containing the representation of project comments, including each individual comment.
+ */
+ 
   public String toString() {
     // name
     String projectString = "Project: " + name + "\n\nAssigned Users: \n";
@@ -264,6 +294,8 @@ public boolean addColumn(String columnName) {
     projectString += "---------------------------------\n";
 
     // comments
+    
+   
     projectString += "\nProject Comments:\n";
     for (Comment c : comments)
       projectString += c.toString() + "\n";
