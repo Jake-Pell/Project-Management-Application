@@ -10,6 +10,9 @@ public class ProjectApplication {
     private Column currentColumn;
     private Comment currentComment;
 
+    /**
+     *  Project Application constructor
+     */
     public ProjectApplication() {
         userList = UserList.getInstance();
         projectList = ProjectList.getInstance();
@@ -28,60 +31,52 @@ public class ProjectApplication {
 
     }
 
-    // Login related methods //
     /**
- * Attempts to log in a user with the provided username and password.
- *
- * @param userName The username of the user trying to log in.
- * @param password The password corresponding to the username.
- * @return {@code true} if the login attempt is successful, {@code false} if unsuccessful.
- */
+     * Login the user using its username and password 
+     * @param userName The username of the user 
+     * @param password The entered password of the user
+     * @return if they were successful in logging in
+     */
     public boolean login(String userName, String password) {
         currentUser = userList.getUser(userName, password);
         return currentUser != null;
     }
 
-/**
- * Saves any modified user and project information before logging out.
- * Calls methods to save user and project data.
- */    public void logout() {
+    /**
+     * Logging out 
+     */
+    public void logout() {
         userList.saveUsers();
         projectList.saveProjects();
     }
-/**
- * Registers a new user by creating a user account with provided details.
- *
- * @param firstName The first name of the new user.
- * @param lastName  The last name of the new user.
- * @param userName  The desired username for the new user account.
- * @param password  The password chosen for the new user account.
- * @return {@code true} if the user account is successfully created, {@code false} if unsuccessful.
- */
+
+    /**
+     * Siging up new user using its information
+     * @param firstName The first name of the new user
+     * @param lastName The last name of the new user
+     * @param userName The username of the new user
+     * @param password The password of the new user
+     * @return If we were able to succesfuly sign up
+     */
     public boolean signUp(String firstName, String lastName, String userName, String password) {
         return userList.addUser(firstName, lastName, userName, password);
     }
-    // ---End of Login methods---
 
-    // Project related methods
-
-    // Make a new project and change current to new one
     /**
- * Adds a new project to the project list and sets it as the current project.
- *
- * @param projectName The name of the new project to be added.
- * @return {@code true} if the project is successfully added and set as the current project, {@code false} otherwise.
- */
-
+     * Adding a project  
+     * @param projectName The name of the new project
+     * @return true if we were able to add the project
+     */
     public boolean addProject(String projectName) {
         projectList.addProject(projectName, currentUser);
         return setCurrentProject(projectName);
     }
-/**
- * Sets the current project to the one with the specified name.
- *
- * @param name The name of the project to set as the current project.
- * @return {@code true} if the project is found and set as the current project, {@code false} otherwise.
- */
+
+    /**
+     * Change the current project
+     * @param name The name of new current project
+     * @return True if we were able to change current project
+     */
     public boolean setCurrentProject(String name) {
         currentProject = projectList.getProject(name);
         return currentProject != null;
@@ -111,12 +106,12 @@ public class ProjectApplication {
             return null;
         return currentProject.toString();
     }
-/**
- * Writes the details of the current project to a file.
- *
- * @param fileName The name of the file to write the project details to.
- * @return {@code true} if writing to the file is successful, {@code false} otherwise.
- */
+
+    /**
+     * Write current project into a file 
+     * @param fileName The filename which we will save it to
+     * @return True if we succesfuly wrote it to a file
+     */
     public boolean writeProjectToFile(String fileName) {
         if (currentProject == null)
             return false;
@@ -143,55 +138,39 @@ public class ProjectApplication {
         return ans;
     }
 
-    // ---End of project---
 
-   // Column related functions
-
-/**
- * Adds a new column to the current project.
- *
- * @param columnName The name of the column to be added.
- * @return {@code true} if the column is successfully added, {@code false} otherwise.
- */
+    /**
+     * Add new Column
+     * @param columnName The name of the new column
+     * @return True if succesfuly added the column
+     */
     public boolean addColumn(String columnName) {
         currentProject.addColumn(columnName);
         return setCurrentColumn(columnName);
-        // return currentProject.addColumn(columnName);
     }
-/**
- * Edits the name of the current column.
- *
- * @param columnName The new name for the column.
- * @return {@code true} if the column name is successfully updated, {@code false} otherwise.
- */
+
+    /**
+     * Edit the name of the column 
+     * @param columnName The name of the column
+     * @return True if succesfuly changed the name of column
+     */
     public boolean editColumnName(String columnName) {
         return currentColumn.setName(columnName);
     }
 
-   /**
- * Moves the current column to the specified index.
- *
- * @param endIndex The index representing the new position in the list of columns.
- * @return {@code true} if the column is moved successfully, assuming the end index is valid, {@code false} otherwise.
- */
+    /**
+     * Move column
+     * @param endIndex The end position where column is going to end up
+     * @return True if we succesfuly changed the location of the column
+     */
     public boolean moveColumn(int endIndex) {
         return currentProject.moveColumn(currentColumn, endIndex);
     }
-/**
- * Adds a comment to the current project.
- *
- * @param description The description of the comment to be added.
- * @return {@code true} if the comment is successfully added to the project, {@code false} otherwise.
- */
+
     public boolean addProjectComment(String description) {
         return currentProject.addComment(currentUser, description);
     }
-/**
- * Sets the current column to the one with the specified name.
- *
- * @param name The name of the column to set as the current column.
- * @return {@code true} if the column is found and set as the current column, {@code false} otherwise.
- */
+
     public boolean setCurrentColumn(String name) {
         if (currentProject == null)
             return false;
@@ -199,17 +178,19 @@ public class ProjectApplication {
         return currentColumn != null;
     }
 
-    // ---End of Column---
-
-    // User methods
-
+    /**
+     * Get the current user
+     * @return current user
+     */
     public User getCurrentUser() {
         return currentUser;
     }
 
-    // Current User wants to add newUser to currentProject
-    // Has to check authority before calling this method
-    // It will add using its username
+    /**
+     * Add a user to a project 
+     * @param username The username of the user we want to add
+     * @return The newUser we want to add
+     */
     public User addUserToProject(String username){
         User newUser = userList.getUser(username);
         currentProject.addUser(newUser);
@@ -219,43 +200,20 @@ public class ProjectApplication {
     // ---End of User---
 
     // Start Task 
-    /**
- * Creates a new task in the current column with the provided details.
- *
- * @param taskName   The name of the new task.
- * @param description The description of the task.
- * @param priority   The priority of the task.
- * @return {@code true} if the task is successfully created, {@code false} otherwise.
- */
     public boolean createTask(String taskname, String descriprion, int priority) {
         if (currentColumn == null)
             return false;
         return currentColumn.addTask(taskname, descriprion, priority);
     }
-/**
- * Edits the description of the current task.
- *
- * @param description The new description for the task.
- * @return {@code true} if the task description is successfully updated, {@code false} otherwise.
- */
+
     public boolean editTaskDescription(String description) {
         return currentTask.setDescription(description);
     }
-/**
- * Edits the priority of the current task.
- *
- * @param priority The new priority for the task.
- * @return {@code true} if the task priority is successfully updated, {@code false} otherwise.
- */
+
     public boolean editTaskPriority(int priority) {
         return currentTask.setPriority(priority);
     }
-/**
- * Edits the name of the current task.
- *
- * @param name The new name for the task.
- * @return {@code true} if the task name is successfully updated, {@code false} otherwise.
- */
+
     public boolean editTaskName(String name) {
         if (!ifNull(currentTask)) {
             return currentTask.setTaskName(name);
@@ -264,12 +222,6 @@ public class ProjectApplication {
         return false;
     }
 
-/**
- * Adds a comment to the current task if the current task is not null.
- *
- * @param description The description of the comment to be added.
- * @return {@code true} if the comment is successfully added to the task, {@code false} otherwise.
- */
     public boolean addTaskComment(String description) {
         if (!ifNull(currentTask)) {
             return currentTask.addComment(currentUser, description);
@@ -277,10 +229,20 @@ public class ProjectApplication {
         return false;
     }
 
+    /**
+     * Move the task between columns 
+     * @param endIndex The ending location of the task
+     * @return True if we succesfuly changed the location
+     */
     public boolean moveTask(int endIndex) {
         return currentProject.moveTask(currentTask, endIndex);
     }
 
+    /**
+     * Set the current task
+     * @param name The new task name
+     * @return True if we successfuly changed the task
+     */
     public boolean setCurrentTask(String name) {
         if (currentColumn == null) 
             return false;
@@ -288,16 +250,18 @@ public class ProjectApplication {
         return currentTask != null;
     }
 
+    /**
+     * Adding a new task
+     * @param name The name of the new task
+     * @param description The description of the new task
+     * @param priority The priority of the new task
+     * @return True if we successfuly added the task
+     */
     public boolean addTask(String name, String description, int priority){
         currentColumn.addTask(name,description, priority);
         return setCurrentTask(name);
     }
-/**
- * Assigns a user to the current task if both the current task and the provided user are not null.
- *
- * @param username The username of the user to be assigned to the task.
- * @return {@code true} if the user is successfully assigned to the task, {@code false} otherwise.
- */
+
     public boolean addUserToTask(String username){
         User newUser = userList.getUser(username);
         if (currentTask != null && newUser != null)
@@ -307,38 +271,24 @@ public class ProjectApplication {
     // ---End of Task---
 
     // Reply methods
-    /**
- * Sets the current comment based on the provided author and description within the current project.
- *
- * @param author      The author of the comment to be set as the current comment.
- * @param description The description of the comment to be set as the current comment.
- * @return {@code true} if the current comment is found based on the author and description, {@code false} otherwise.
- */
-
     public boolean setCurrentComment(String author, String description) {
         if (currentProject == null)
             return false;
         currentComment = currentProject.getComment(author, description);
         return currentComment != null;
     }
-/**
- * Adds a reply to the current comment if both the current comment and the current user are not null.
- *
- * @param description The description of the reply to be added.
- * @return {@code true} if the reply is successfully added to the current comment, {@code false} otherwise.
- */
+
     public boolean addReply(String description) {
         if (currentComment == null || currentUser == null)
             return false;
         return currentComment.addReply(currentUser, description);
     }
 
-/**
- * Checks if the provided object is null.
- *
- * @param o The object to be checked for null.
- * @return {@code true} if the provided object is null, otherwise {@code false}.
- */
+    /**
+     * Check if an object if null 
+     * @param o The object we are checking
+     * @return True if it is null
+     */
     private boolean ifNull(Object o) {
         if (o == null) {
             return true;
