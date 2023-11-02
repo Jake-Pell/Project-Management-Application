@@ -177,11 +177,21 @@ public class ProjectApplication {
     public boolean moveColumn(int endIndex) {
         return currentProject.moveColumn(currentColumn, endIndex);
     }
-
+/**
+ * Adds a comment to the current project.
+ *
+ * @param description The description of the comment to be added.
+ * @return {@code true} if the comment is successfully added to the project, {@code false} otherwise.
+ */
     public boolean addProjectComment(String description) {
         return currentProject.addComment(currentUser, description);
     }
-
+/**
+ * Sets the current column to the one with the specified name.
+ *
+ * @param name The name of the column to set as the current column.
+ * @return {@code true} if the column is found and set as the current column, {@code false} otherwise.
+ */
     public boolean setCurrentColumn(String name) {
         if (currentProject == null)
             return false;
@@ -209,20 +219,43 @@ public class ProjectApplication {
     // ---End of User---
 
     // Start Task 
+    /**
+ * Creates a new task in the current column with the provided details.
+ *
+ * @param taskName   The name of the new task.
+ * @param description The description of the task.
+ * @param priority   The priority of the task.
+ * @return {@code true} if the task is successfully created, {@code false} otherwise.
+ */
     public boolean createTask(String taskname, String descriprion, int priority) {
         if (currentColumn == null)
             return false;
         return currentColumn.addTask(taskname, descriprion, priority);
     }
-
+/**
+ * Edits the description of the current task.
+ *
+ * @param description The new description for the task.
+ * @return {@code true} if the task description is successfully updated, {@code false} otherwise.
+ */
     public boolean editTaskDescription(String description) {
         return currentTask.setDescription(description);
     }
-
+/**
+ * Edits the priority of the current task.
+ *
+ * @param priority The new priority for the task.
+ * @return {@code true} if the task priority is successfully updated, {@code false} otherwise.
+ */
     public boolean editTaskPriority(int priority) {
         return currentTask.setPriority(priority);
     }
-
+/**
+ * Edits the name of the current task.
+ *
+ * @param name The new name for the task.
+ * @return {@code true} if the task name is successfully updated, {@code false} otherwise.
+ */
     public boolean editTaskName(String name) {
         if (!ifNull(currentTask)) {
             return currentTask.setTaskName(name);
@@ -231,6 +264,12 @@ public class ProjectApplication {
         return false;
     }
 
+/**
+ * Adds a comment to the current task if the current task is not null.
+ *
+ * @param description The description of the comment to be added.
+ * @return {@code true} if the comment is successfully added to the task, {@code false} otherwise.
+ */
     public boolean addTaskComment(String description) {
         if (!ifNull(currentTask)) {
             return currentTask.addComment(currentUser, description);
@@ -253,7 +292,12 @@ public class ProjectApplication {
         currentColumn.addTask(name,description, priority);
         return setCurrentTask(name);
     }
-
+/**
+ * Assigns a user to the current task if both the current task and the provided user are not null.
+ *
+ * @param username The username of the user to be assigned to the task.
+ * @return {@code true} if the user is successfully assigned to the task, {@code false} otherwise.
+ */
     public boolean addUserToTask(String username){
         User newUser = userList.getUser(username);
         if (currentTask != null && newUser != null)
@@ -263,13 +307,26 @@ public class ProjectApplication {
     // ---End of Task---
 
     // Reply methods
+    /**
+ * Sets the current comment based on the provided author and description within the current project.
+ *
+ * @param author      The author of the comment to be set as the current comment.
+ * @param description The description of the comment to be set as the current comment.
+ * @return {@code true} if the current comment is found based on the author and description, {@code false} otherwise.
+ */
+
     public boolean setCurrentComment(String author, String description) {
         if (currentProject == null)
             return false;
         currentComment = currentProject.getComment(author, description);
         return currentComment != null;
     }
-
+/**
+ * Adds a reply to the current comment if both the current comment and the current user are not null.
+ *
+ * @param description The description of the reply to be added.
+ * @return {@code true} if the reply is successfully added to the current comment, {@code false} otherwise.
+ */
     public boolean addReply(String description) {
         if (currentComment == null || currentUser == null)
             return false;
