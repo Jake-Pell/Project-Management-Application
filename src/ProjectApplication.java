@@ -65,16 +65,33 @@ public class ProjectApplication {
     // Project related methods
 
     // Make a new project and change current to new one
+    /**
+ * Adds a new project to the project list and sets it as the current project.
+ *
+ * @param projectName The name of the new project to be added.
+ * @return {@code true} if the project is successfully added and set as the current project, {@code false} otherwise.
+ */
+
     public boolean addProject(String projectName) {
         projectList.addProject(projectName, currentUser);
         return setCurrentProject(projectName);
     }
-
+/**
+ * Sets the current project to the one with the specified name.
+ *
+ * @param name The name of the project to set as the current project.
+ * @return {@code true} if the project is found and set as the current project, {@code false} otherwise.
+ */
     public boolean setCurrentProject(String name) {
         currentProject = projectList.getProject(name);
         return currentProject != null;
     }
-
+/**
+ * Edits the name of the current project.
+ *
+ * @param title The new title for the current project.
+ * @return {@code true} if the project name is successfully updated, {@code false} otherwise.
+ */
     public boolean editProjectName(String title) {
         return currentProject.setName(title);
     }
