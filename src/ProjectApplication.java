@@ -14,7 +14,12 @@ public class ProjectApplication {
         userList = UserList.getInstance();
         projectList = ProjectList.getInstance();
     }
-
+/**
+ * Constructs a Project Application setting up the application with a specific project and user.
+ *
+ * @param project The project associated with the application.
+ * @param user    The user logged into the application.
+ */
     public ProjectApplication(Project project, User user) {
         this.currentUser = user;
         this.currentProject = project;
@@ -24,17 +29,34 @@ public class ProjectApplication {
     }
 
     // Login related methods //
+    /**
+ * Attempts to log in a user with the provided username and password.
+ *
+ * @param userName The username of the user trying to log in.
+ * @param password The password corresponding to the username.
+ * @return {@code true} if the login attempt is successful, {@code false} if unsuccessful.
+ */
     public boolean login(String userName, String password) {
         currentUser = userList.getUser(userName, password);
         return currentUser != null;
     }
 
-    // Saving changed information before logging out
-    public void logout() {
+/**
+ * Saves any modified user and project information before logging out.
+ * Calls methods to save user and project data.
+ */    public void logout() {
         userList.saveUsers();
         projectList.saveProjects();
     }
-
+/**
+ * Registers a new user by creating a user account with provided details.
+ *
+ * @param firstName The first name of the new user.
+ * @param lastName  The last name of the new user.
+ * @param userName  The desired username for the new user account.
+ * @param password  The password chosen for the new user account.
+ * @return {@code true} if the user account is successfully created, {@code false} if unsuccessful.
+ */
     public boolean signUp(String firstName, String lastName, String userName, String password) {
         return userList.addUser(firstName, lastName, userName, password);
     }
@@ -204,8 +226,12 @@ public class ProjectApplication {
         return currentComment.addReply(currentUser, description);
     }
 
-    // Private helper methods
-    // returns true if it's null
+/**
+ * Checks if the provided object is null.
+ *
+ * @param o The object to be checked for null.
+ * @return {@code true} if the provided object is null, otherwise {@code false}.
+ */
     private boolean ifNull(Object o) {
         if (o == null) {
             return true;
