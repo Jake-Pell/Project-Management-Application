@@ -261,7 +261,12 @@ public class ProjectApplication {
         currentColumn.addTask(name,description, priority);
         return setCurrentTask(name);
     }
-
+/**
+ * Assigns a user to the current task if both the current task and the provided user are not null.
+ *
+ * @param username The username of the user to be assigned to the task.
+ * @return {@code true} if the user is successfully assigned to the task, {@code false} otherwise.
+ */
     public boolean addUserToTask(String username){
         User newUser = userList.getUser(username);
         if (currentTask != null && newUser != null)
