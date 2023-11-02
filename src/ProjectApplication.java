@@ -95,17 +95,28 @@ public class ProjectApplication {
     public boolean editProjectName(String title) {
         return currentProject.setName(title);
     }
-
+/**
+ * Saves the current projects to a storage.
+ */
     public void saveProjects() {
         projectList.saveProjects();
     }
-
+/**
+ * Retrieves the string representation of the current project.
+ *
+ * @return A string representation of the current project, or {@code null} if the current project is null.
+ */
     public String currentProjectToString() {
         if (currentProject == null)
             return null;
         return currentProject.toString();
     }
-
+/**
+ * Writes the details of the current project to a file.
+ *
+ * @param fileName The name of the file to write the project details to.
+ * @return {@code true} if writing to the file is successful, {@code false} otherwise.
+ */
     public boolean writeProjectToFile(String fileName) {
         if (currentProject == null)
             return false;
@@ -114,6 +125,11 @@ public class ProjectApplication {
 
 
     // Returns projects that currentUser is inside
+    /**
+ * Retrieves the list of projects that the current user is associated with.
+ *
+ * @return A list of projects where the current user is involved, an empty list if there are no such projects.
+ */
     public ArrayList<Project> getUserProjects() {
         ArrayList<Project> currProjects = projectList.getProjects();
         ArrayList<Project> ans = new ArrayList<Project>();
@@ -129,18 +145,35 @@ public class ProjectApplication {
 
     // ---End of project---
 
-    // Column related functions
+   // Column related functions
+
+/**
+ * Adds a new column to the current project.
+ *
+ * @param columnName The name of the column to be added.
+ * @return {@code true} if the column is successfully added, {@code false} otherwise.
+ */
     public boolean addColumn(String columnName) {
         currentProject.addColumn(columnName);
         return setCurrentColumn(columnName);
         // return currentProject.addColumn(columnName);
     }
-
+/**
+ * Edits the name of the current column.
+ *
+ * @param columnName The new name for the column.
+ * @return {@code true} if the column name is successfully updated, {@code false} otherwise.
+ */
     public boolean editColumnName(String columnName) {
         return currentColumn.setName(columnName);
     }
 
-    // Assume the end index to be valid
+   /**
+ * Moves the current column to the specified index.
+ *
+ * @param endIndex The index representing the new position in the list of columns.
+ * @return {@code true} if the column is moved successfully, assuming the end index is valid, {@code false} otherwise.
+ */
     public boolean moveColumn(int endIndex) {
         return currentProject.moveColumn(currentColumn, endIndex);
     }
