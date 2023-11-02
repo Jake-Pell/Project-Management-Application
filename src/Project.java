@@ -112,11 +112,12 @@ public boolean addColumn(String columnName) {
   }
 
   // User related methods
-  /**
-   * 
-   * @param user
-   * @return true if the user was successfully added, false otherwise.
-   */
+ /**
+ * Checks if the provided user is contained within the project's user list.
+ *
+ * @param user The user to check for within the project.
+ * @return {@code true} if the user is found within the project's user list, {@code false} otherwise.
+ */
   public boolean containUser(User user) {
     if (users.contains(user)) {
       return true;
@@ -124,37 +125,48 @@ public boolean addColumn(String columnName) {
     return false;
   }
 /**
- * 
- * @param user
- * @return adds a user to project
+ * Adds a user to the project.
+ *
+ * @param user The user to be added to the project.
+ * @return {@code true} if the user is successfully added to the project's user list; {@code false} otherwise.
  */
   public boolean addUser(User user) {
     return users.add(user);
   }
-  /**
-   * 
-   * @param user
-   * @param description
-   * @return comments.add(commment)
-   */
+/**
+ * Adds a comment to the project.
+ *
+ * @param user        The user creating the comment.
+ * @param description The content of the comment.
+ * @return {@code true} if the comment is successfully added to the project's comments; {@code false} otherwise.
+ */
 
   public boolean addComment(User user, String description) {
     Comment comment = new Comment(user, description);
     return comments.add(comment);
   }
 /**
- * 
- * @param column
- * @return comments.add(commment)
+ * Adds a column to the project.
+ *
+ * @param column The column to be added to the project.
+ * @return {@code true} if the column is successfully added; {@code false} otherwise.
  */
   public boolean addColumn(Column column) {
     return columns.add(column);
   }
-
+/**
+ * Retrieves the Name of the project.
+ *
+ * @return The Name representing the  of the project.
+ */
   public String getName() {
     return name;
   }
-
+/**
+ * Retrieves the unique identifier (UUID) of the project.
+ *
+ * @return The UUID representing the unique identifier of the project.
+ */
   public UUID getID() {
     return id;
   }
