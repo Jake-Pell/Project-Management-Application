@@ -14,8 +14,8 @@ public class Project {
   private ArrayList<Comment> comments;
 /**
  * 
- * @param name
- * @param user
+ * @param name is the name of the project
+ * @param user is the user that created the project
  */
   public Project(String name, User user) {
     id = UUID.randomUUID();
@@ -36,11 +36,11 @@ public class Project {
 
   /**
    * 
-   * @param id
-   * @param name
-   * @param users
-   * @param columns
-   * @param comments
+   * @param id this the the uid of the project  
+   * @param name  this is the name of the project
+   * @param users  user that are on the project
+   * @param columns how many cloums the project has like todo doing and done
+   * @param comments this is the comments on the projects
    */
   // constructor called by DataLoader
   public Project(String id, String name, ArrayList<User> users,
@@ -54,7 +54,7 @@ public class Project {
 
 /**
  * 
- * @param newName
+ * @param newName to change name of the project
  * @return {@code true} if the name is set successfully; {@code false} if the provided 
  *         name is an empty string and, therefore, not set.
 
@@ -70,20 +70,24 @@ public class Project {
   }
 
   // Column related methods
-  /**
-   * 
-   * @param columnName
-   * @return columns.add(new Column(columnName))
-   */
-  public boolean addColumn(String columnName) {
-    return columns.add(new Column(columnName));
-  }
-/**
- * 
- * @param column
- * @param endIndex
- * @return swapColumn(column, start, endIndex)
+ /**
+ * Adds a new column to the project with the given column name.
+ *
+ * @param columnName The name of the column to be added.
+ * @return {@code true} if the column is successfully added to the project; {@code false} otherwise.
  */
+public boolean addColumn(String columnName) {
+  return columns.add(new Column(columnName));
+}
+/**
+ * Moves the specified column to a new position indicated by the endIndex.
+ *
+ * @param column    The column to be moved within the project.
+ * @param endIndex  The index representing the new position for the column in the list of columns.
+ * @return {@code true} if the column is successfully moved to the new position;
+ *         {@code false} if the column cannot be moved due to an invalid endIndex.
+ */
+
 
   public boolean moveColumn(Column column, int endIndex) {
 
