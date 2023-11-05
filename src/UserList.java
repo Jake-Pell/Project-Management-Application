@@ -18,9 +18,22 @@ public class UserList {
 
 	public boolean addUser(String firstName, String lastName,
 			String username, String password) {
-				
-		if (userList == null)
+
+		if (userList == null){
 			return false;
+		}
+		
+		if (firstName == null || lastName == null ||
+		 username == null || password == null){
+			return false;
+		}
+		if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty()){
+			return false;
+		}
+		if (firstName.contains(" ") || lastName.contains(" ") || username.contains(" ") || password.contains(" ")){
+			return false;
+		}
+
 		return users.add(new User(firstName, lastName, username, password));
 	}
 

@@ -20,8 +20,18 @@ class UserListTest {
         DataWriter.saveUsers();
     }
     @Test
-    public void run(){
-        System.out.println("TESTING");
-    }
-    
+    public void addingUser(){
+        // Checking for null, empty and space
+        String[] falseArray= {null, "","Name With space"};
+
+        for ( String name : falseArray){
+            assertEquals(false, userList.addUser(
+            name, "goodLast", "newUser", "legitpass"));
+        }
+        
+        String[] trueArray = {"goodName", "SpaceFree"};
+        for (String name: trueArray){
+            assertEquals(true, userList.addUser(name, "sdf" ,"sdfd" ,"sdf"));
+        }
+    } 
 }
