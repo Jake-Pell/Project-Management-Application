@@ -19,5 +19,10 @@ class UserListTest {
         UserList.getInstance().getUsers().clear();
         DataWriter.saveUsers();
     }
+
+    public void run(){
+        setup();
+        tearDown();
+    }
     
 }
