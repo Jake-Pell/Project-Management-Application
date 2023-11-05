@@ -18,6 +18,7 @@ public class UserList {
 
 	public boolean addUser(String firstName, String lastName,
 			String username, String password) {
+				
 		if (userList == null)
 			return false;
 		return users.add(new User(firstName, lastName, username, password));
