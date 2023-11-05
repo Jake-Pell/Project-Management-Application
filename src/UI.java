@@ -3,8 +3,8 @@
 public class UI {
     public static void main(String[] args) {
         // scenario1();
-        UserListTest ut = new UserListTest();
-        ut.run();
+        // UserListTest ut = new UserListTest();
+        // ut.run();
     }
 
     public static void scenario1(){
