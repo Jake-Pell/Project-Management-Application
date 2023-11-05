@@ -16,6 +16,9 @@ public class UserList {
 		return userList;
 	}
 
+	// all parameters must not be empty or null
+	// username must not be taken, and must be at least 4 characters
+	// password must have at least 8 characters, a number, and a special character
 	public boolean addUser(String firstName, String lastName,
 			String username, String password) {
 
