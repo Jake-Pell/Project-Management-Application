@@ -107,7 +107,7 @@ class UserListTest {
     // tests for addUser()
     @Test
     void testAddUserValid() {
-        boolean userAdded = userList.addUser("Steve", "Stevenson", "stevesteven", "SecurePassword123*");
+        boolean userAdded = userList.addUser("Steve", "Stevenson", "swertevesteven", "SecurePassword123*");
         assertTrue(userAdded);
     }
 

@@ -22,18 +22,10 @@ public class UserList {
 	public boolean addUser(String firstName, String lastName,
 			String username, String password) {
 
-		if (userList == null){
-			return false;
-		}
-		
-		if (firstName == null || lastName == null ||
-		 username == null || password == null){
-			return false;
-		}
-		if (firstName.isEmpty() || lastName.isEmpty() || username.isEmpty() || password.isEmpty()){
-			return false;
-		}
-		if (firstName.contains(" ") || lastName.contains(" ") || username.contains(" ") || password.contains(" ")){
+
+		System.out.println(badName(firstName));
+
+		if(badName(firstName)|| badName(lastName) || badUsername(username) || badPassword(password)){
 			return false;
 		}
 
@@ -76,5 +68,76 @@ public class UserList {
 
 	public ArrayList<User> getUsers() {
 		return users;
+	}
+
+	private boolean badPassword(String password) {
+		if( password == null || password.isEmpty()){
+			return true;
+		}
+
+		String[] badChar = {"=", " ", "+"};
+		for (String s: badChar){
+			if (password.contains(s)){
+				return true;
+			}
+		}
+		if (password.length() < 4){
+			return true;
+		}
+		String[] goodNums = {"1", "2", "3", "4", 
+					"5", "6", "7", "8", "9"};
+		String[] goodChar = {"&", "!", "*", "%", "$", "#", "@"};
+		boolean ifNum = false;
+		boolean ifChar = false;
+		for (String s: goodNums){
+			if (password.contains(s)){
+				ifNum = true;
+				break;
+			}
+		}
+		for (String s: goodChar){
+			if (password.contains(s)){
+				ifChar = true;
+				break;
+			}
+		}
+		if (ifChar && ifNum) {
+			return false;
+		} else{
+			return true;
+		}
+
+	}
+
+	private boolean badName(String name){
+		String[] badChar = {"1", "2", "3", "4", " ", 
+					"5", "6", "7", "8", "9","&", "!", "*", "%", "$", "#", "@"};
+		
+		if (name == null || name.isEmpty()){
+			return true;
+		}
+		for (String s: badChar){
+			if (name.contains(s)){
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private boolean badUsername(String uName){
+		if (uName == null || uName.isEmpty()){
+			return true; 
+		}
+		if (uName.length() < 4 ){
+			return true;
+		}
+		for (User u : users){
+			if (u.getUsername().equals(uName)){
+				return true;
+			}
+		}
+
+		return false;
 	}
 }
