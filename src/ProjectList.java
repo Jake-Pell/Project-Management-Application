@@ -38,17 +38,6 @@ public class ProjectList {
     }
 
     /**
-     * Adds a task to the project list.
-     *
-     * @param task The task to add.
-     * @return True if the task is added successfully.
-     */
-    public boolean addTask(Task task) {
-        // Implementation to add a task to the project list
-        return true;
-    }
-
-    /**
      * Saves the projects.
      *
      * @return True if the projects are successfully saved.
