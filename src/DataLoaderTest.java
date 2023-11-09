@@ -17,10 +17,10 @@ class DataLoaderTest {
     }
 
     @AfterEach
-    public void tearDown() {
-        Users.getInstance().getUsers().clear();
-        DataWriter.saveUsers();
-    }
+	public void tearDown() {
+    userList.clear();
+    DataWriter.saveUsers();
+	}
 
     @Test
     void testGetUsersSize() {
@@ -28,16 +28,16 @@ class DataLoaderTest {
         assertEquals(2, userList.size());
     }
 
-    @Test
-    void testGetUsersSizeZero() {
-        Users.getInstance().getUsers().clear();
-        DataWriter.saveUsers();
-        assertEquals(0, userList.size());
-    }
+	@Test
+	void testGetUsersSizeZero() {
+		userList.clear();
+		DataWriter.saveUsers();
+		assertEquals(0, userList.size());
+	}	
 
-    @Test
-    void testGetUserFirstUserName() {
-        userList = DataLoader.getUsers();
-        assertEquals("asmith", userList.get(0).getUserName());
-    }
+	@Test
+	void testGetUserFirstUserName() {
+		userList = DataLoader.getUsers();
+		assertEquals("asmith", userList.get(0).getUsername());
+	}	
 }
