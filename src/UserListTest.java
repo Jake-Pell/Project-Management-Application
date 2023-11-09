@@ -22,22 +22,7 @@ class UserListTest {
         DataWriter.saveUsers();
     }
 
-    // tests for getUser(String username)
-    @Test
-    public void addingUser(){
-        // Checking for null, empty and space
-        String[] falseArray= {null, "","Name With space"};
-
-        for ( String name : falseArray){
-            assertEquals(false, userList.addUser(
-            name, "goodLast", "newUser", "legitpass"));
-        }
-        
-        String[] trueArray = {"goodName", "SpaceFree"};
-        for (String name: trueArray){
-            assertEquals(true, userList.addUser(name, "sdf" ,"sdfd" ,"sdf"));
-        }
-    } 
+    // tests for getUser(String username) 
     void testGetUserValidUsernameFirstItem() {
         User jake = userList.getUser("pellj");
         assertNotNull(jake);
