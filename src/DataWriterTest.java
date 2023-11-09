@@ -7,18 +7,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class DataWriterTest {
-	private User user = User.getInstance();
+	private UserList user = UserList.getInstance();
 	private ArrayList<User> userList = user.getUsers();
 	
 	@BeforeEach
 	public void setup() {
-		User.getInstance().getUsers().clear();
+		user.getInstance().getUsers().clear();
 		DataWriter.saveUsers();
 	}
 	
 	@AfterEach
 	public void tearDown() {
-		User.getInstance().getUsers().clear();
+		user.getInstance().getUsers().clear();
 		DataWriter.saveUsers();
 	}
 	
@@ -31,34 +31,34 @@ class DataWriterTest {
 
 	@Test
 	void testWritingOneUser() {
-		userList.add(new User("asmith", "Amy", "Smith", 19, "803-454-3344"));
+		userList.add(new User("asmith", "Amy", "Smith", "passwrod123!"));
 		DataWriter.saveUsers();
-		assertEquals("asmith", DataLoader.getUsers().get(0).getUserName());
+		assertEquals("asmith", DataLoader.getUsers().get(0).getUsername());
 	}
 	
 	@Test
 	void testWritingFiveUsers() {
-		userList.add(new User("asmith", "Amy", "Smith", 19, "803-454-3344"));
-		userList.add(new User("bsmith", "Amy", "Smith", 19, "803-454-3344"));
-		userList.add(new User("csmith", "Amy", "Smith", 19, "803-454-3344"));
-		userList.add(new User("dsmith", "Amy", "Smith", 19, "803-454-3344"));
-		userList.add(new User("esmith", "Amy", "Smith", 19, "803-454-3344"));
+		userList.add(new User("asmith", "Amy", "Smith", "passwrod123!"));
+		userList.add(new User("asmith", "Amy", "Smith", "passwrod123!"));
+		userList.add(new User("asmith", "Amy", "Smith", "passwrod123!"));
+		userList.add(new User("asmith", "Amy", "Smith", "passwrod123!"));
+		userList.add(new User("asmith", "Amy", "Smith", "passwrod123!"));
 		DataWriter.saveUsers();
-		assertEquals("esmith", DataLoader.getUsers().get(4).getUserName());
+		assertEquals("esmith", DataLoader.getUsers().get(4).getUsername());
 	}
 	
 	@Test
 	void testWritingEmptyUser() {
-		userList.add(new User("", "", "", 0, ""));
+		userList.add(new User("", "", "", ""));
 		DataWriter.saveUsers();
-		assertEquals("", DataLoader.getUsers().get(0).getUserName());
+		assertEquals("", DataLoader.getUsers().get(0).getUsername());
 	}
 	
 	@Test
 	void testWritingNullUser() {
-		userList.add(new User(null, "", "", 0, ""));
+		userList.add(new User(null, "", "", ""));
 		DataWriter.saveUsers();
-		assertEquals(null, DataLoader.getUsers().get(0).getUserName());
+		assertEquals(null, DataLoader.getUsers().get(0).getUsername());
 	}
 	
 }
