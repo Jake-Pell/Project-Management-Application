@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class ProjectApplication {
 
     private User currentUser;
@@ -200,20 +201,43 @@ public class ProjectApplication {
     // ---End of User---
 
     // Start Task 
+    /**
+ * Creates a new task in the current column with the provided details.
+ *
+ * @param taskName   The name of the new task.
+ * @param description The description of the task.
+ * @param priority   The priority of the task.
+ * @return {@code true} if the task is successfully created, {@code false} otherwise.
+ */
     public boolean createTask(String taskname, String descriprion, int priority) {
         if (currentColumn == null)
             return false;
         return currentColumn.addTask(taskname, descriprion, priority);
     }
-
+/**
+ * Edits the description of the current task.
+ *
+ * @param description The new description for the task.
+ * @return {@code true} if the task description is successfully updated, {@code false} otherwise.
+ */
     public boolean editTaskDescription(String description) {
         return currentTask.setDescription(description);
     }
-
+/**
+ * Edits the priority of the current task.
+ *
+ * @param priority The new priority for the task.
+ * @return {@code true} if the task priority is successfully updated, {@code false} otherwise.
+ */
     public boolean editTaskPriority(int priority) {
         return currentTask.setPriority(priority);
     }
-
+/**
+ * Edits the name of the current task.
+ *
+ * @param name The new name for the task.
+ * @return {@code true} if the task name is successfully updated, {@code false} otherwise.
+ */
     public boolean editTaskName(String name) {
         if (!ifNull(currentTask)) {
             return currentTask.setTaskName(name);
